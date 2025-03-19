@@ -37,7 +37,7 @@ test result :
  2, on another hand, while using raspberry pi 5 16G , everything good, no yarn install/build OOM, no running time OOM... so I wonder the it might OS/Orange Pi5 AIPro probably have some unknown limitation. 
 
 3, aspberry pi 5 16G have it's own issue..  I using PCIE M.2 extension board to add NVMe SSD, but it seems will have IO problem while the disk access too much and it will cause whole system crash or it cause the wifi/eth connection failure...
- ![assets/2025-03-10 Local RAG LLM Project.assets/20250319235528.png]
+ ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/20250319235528.png)
  
  4, using M.2 to Qculink eGPU docker connect to external GPU, I try to the old GForce 960 , refer to https://alican-kiraz1.medium.com/run-llm-on-pi5-connecting-an-nvidia-gpu-to-raspberry-pi-5-via-pcie-x4-a6d52c3efd2a , but it don't work for me.  it can show the hardware information , but  NVIDIA driver  don't work. 
  ![2020250320000509.png](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250320000509.png)
