@@ -35,7 +35,7 @@ refer to ""/workspace/deeplearning/NLP/Vision Transformers from Scratch (PyTorch
 - 其中`Patch Merging`模块主要在每个Stage一开始降低图片分辨率。
 - 而Block具体结构如右图所示，主要是`LayerNorm`，`MLP`，`Window Attention` 和 `Shifted Window Attention`组成 (为了方便讲解，我会省略掉一些参数)
 
-![img](./Vision%20Transformer.assets/17fyQm7H34kXGwENxyK1GYw.png)
+![img](/assets/Vision%20Transformer.assets/17fyQm7H34kXGwENxyK1GYw.png)
 
 We then send the image into a series of transformer blocks and patch merging blocks.
 
@@ -48,13 +48,13 @@ We then send the image into a series of transformer blocks and patch merging blo
   - ViT在输入会给embedding进行位置编码。而Swin-T这里则是作为一个**可选项**（`self.ape`），Swin-T是在计算Attention的时候做了一个`相对位置编码`
   - ViT会单独加上一个可学习参数，作为分类的token。而Swin-T则是**直接做平均**，输出分类，有点类似CNN最后的全局平均池化层
 
-![image-20240116091743493](./Vision%20Transformer.assets/image-20240116091743493.png)
+![image-20240116091743493](/assets/Vision%20Transformer.assets/image-20240116091743493.png)
 
-![image-20240116092157934](./Vision%20Transformer.assets/image-20240116092157934.png)
+![image-20240116092157934](/assets/Vision%20Transformer.assets/image-20240116092157934.png)
 
-![image-20240116140930491](./Vision%20Transformer.assets/image-20240116140930491.png)
+![image-20240116140930491](/assets/Vision%20Transformer.assets/image-20240116140930491.png)
 
-![image-20240116193809061](./Vision%20Transformer.assets/image-20240116193809061.png)
+![image-20240116193809061](/assets/Vision%20Transformer.assets/image-20240116193809061.png)
 
 ## **Patch Embedding**
 
@@ -192,7 +192,7 @@ class PatchMerging(nn.Module):
         return self.layer_norm(self.linear(x))
 ```
 
-![img](./Vision%20Transformer.assets/v2-a1a0ea5d9455083caed65006433c4efe_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-a1a0ea5d9455083caed65006433c4efe_720w.webp)
 
 
 
@@ -217,7 +217,7 @@ tokens: hxwxC heads: $d$
 
 $\Rightarrow$ 对于 $q$ ，input: $h w \times \frac{c}{d} $, output: $h w \times \frac{c}{d}$需要计算量 $h w \times \frac{c}{d} \times c$
 
-![image-20240111134545199](./Vision%20Transformer.assets/image-20240111134545199.png)
+![image-20240111134545199](/assets/Vision%20Transformer.assets/image-20240111134545199.png)
 
 参考右侧矩阵乘法: 输出短阵大小为$hw \times \frac{c}{d}$, 其中的每个元素需要进行C次运算,  对于 $q$ ，需要计算量 $h w \times \frac{c}{d} \times c$
 
@@ -261,7 +261,7 @@ $$
 
 **window partition 函数是用于对张量划分窗口，指定窗口大小。将原本的张量从 N H W C, 划分成 num_windows*B, window_size, window_size (ZTD: how many patches in one window, ==patch should be already be calculated by in previouse 'patch embedding'== ), C ，其中 num_windows = H\*W / (window_size\*window_size)，即窗口的个数。而window reverse函数则是对应的逆过程。这两个函数会在后面的Window Attention用到。**
 
-![img](./Vision%20Transformer.assets/1Kgi0npIhx7pdSBddP5m28A.png)
+![img](/assets/Vision%20Transformer.assets/1Kgi0npIhx7pdSBddP5m28A.png)
 
 ```python
 def window_partition(x, window_size=7):
@@ -355,7 +355,7 @@ class ShiftedWindowMSA(nn.Module):
 
 前面的Window Attention是在每个窗口下计算注意力的，为了更好的和其他window进行信息交互，Swin Transformer还引入了shifted window操作。
 
-![image-20240112151212065](./Vision%20Transformer.assets/image-20240112151212065.png)
+![image-20240112151212065](/assets/Vision%20Transformer.assets/image-20240112151212065.png)
 
 Shifted Window方法是在**连续的两个Transformer Block之间实现的**。
 - 第一个模块使用一个标准的window partition策略，**从feature map的左上角出发**，例如一个 $8 * 8$ 的feature map会被平分为 $2 * 2$ 个window，每个window的大小为 $M=4$ 。
@@ -376,7 +376,7 @@ Shifted Window Partition存在一个问题，由于没有与边界对齐，其�
 
 比较Naive的一种解决方法如下图所示：
 
-![img](./Vision%20Transformer.assets/v2-c7d037d20ef14a5c0098572e38cc2bd2_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-c7d037d20ef14a5c0098572e38cc2bd2_720w.webp)
 
 可以看出这种解决方法的缺点在于额外计算了很多padding的部分，浪费了大量计算。
 
@@ -384,7 +384,7 @@ Shifted Window Partition存在一个问题，由于没有与边界对齐，其�
 
 为此，SwinTransformer采用了一个更为高效的 Batch Computation Approach。
 
-![img](./Vision%20Transformer.assets/1InwcdUt4II6dSl5srk0dew.png)
+![img](/assets/Vision%20Transformer.assets/1InwcdUt4II6dSl5srk0dew.png)
 
 这一部分在论文中并没有详细说明，仅仅通过上图进行了展示，其实整体思想就是：通过设定特殊的mask，**在Attention时，仅对一个window内的有效部分进行Attention，其余部分被mask掉**，即可实现在原来计算Attention方法不变的情况下，对非规则的Window计算Attention。
 
@@ -396,7 +396,7 @@ Shifted Window Partition存在一个问题，由于没有与边界对齐，其�
 >
 > 代码里对特征图移位是通过`torch.roll`来实现的，下面是示意图
 >
-> ![img](./Vision%20Transformer.assets/v2-8d8274d62026e0732c8a7827de1070fc_720w.webp)
+> ![img](/assets/Vision%20Transformer.assets/v2-8d8274d62026e0732c8a7827de1070fc_720w.webp)
 
 
 
@@ -443,20 +443,20 @@ attn_mask = attn_mask.masked_fill(attn_mask != 0, float(-100.0)).masked_fill(att
 
   However, As you can see in the Fig. 9, one window(newly created window) contains parts of different windows(from the perspective of before cyclic shift).
 
-  ![space-1.jpg](./Vision%20Transformer.assets/swint9.png)
+  ![space-1.jpg](/assets/Vision%20Transformer.assets/swint9.png)
 
    This is not good.. we need to make sure that self-attention is performed only within each window from the perspective of **original 9 windows** before the cyclic shift. How can we do that? That's why we need **attention mask** as shown in Fig. 4.
 
 
-![space-1.jpg](./Vision%20Transformer.assets/swint10.png)
+![space-1.jpg](/assets/Vision%20Transformer.assets/swint10.png)
 
 dive deep into the codes.
 
-  ![space-1.jpg](./Vision%20Transformer.assets/swint11.png)
+  ![space-1.jpg](/assets/Vision%20Transformer.assets/swint11.png)
 
 Let's take an example of **bottom-left** window from Figure As stated earlier, we want to apply self-attention individually for each region(separately for `3` and `6`) in this window as shown 
 
-![space-1.jpg](./Vision%20Transformer.assets/swint12.png)
+![space-1.jpg](/assets/Vision%20Transformer.assets/swint12.png)
 
 ==The official implementation uses a nice yet super simple trick to achieve this. Follow each step along with the figure.==
 
@@ -470,43 +470,43 @@ Let's take an example of **bottom-left** window from Figure As stated earlier, w
 
 5. Make all the **non-zero** patches to `-100`.
 
-   |![space-1.jpg](./Vision%20Transformer.assets/swint13-1705151546044-5.png)
+   |![space-1.jpg](/assets/Vision%20Transformer.assets/swint13-1705151546044-5.png)
 
 #### Attention masks 2
 
 以上几行即为Mask的计算代码，其中 $H ， W$ 即为输入feature map的高和宽。window_size即为 window的大小，也就是论文中的 $M$ ， shift_size为窗口移动的大小，shift_size $=\left\lfloor\frac{\bar{M}}{2}\right\rfloor$ ， self 是对象，可以忽略。详细说明见下图:
 
-![img](./Vision%20Transformer.assets/v2-dc2fe96c5c67510aeabbcff3489c9757_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-dc2fe96c5c67510aeabbcff3489c9757_720w.webp)
 
-![img](./Vision%20Transformer.assets/v2-61469886ee2ef8995996a5a0acd69ab8_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-61469886ee2ef8995996a5a0acd69ab8_720w.webp)
 
-![img](./Vision%20Transformer.assets/v2-9cb8b56e82d02370c8b243a54a5efc00_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-9cb8b56e82d02370c8b243a54a5efc00_720w.webp)
 
 其他的window对应的Attention Mask可以采用上述类似的逻辑推导出其具体值。 下图依次为window (1)，window (2)，window (3)，window (4)对应的attn mask的示意图：
 
-![img](./Vision%20Transformer.assets/v2-47d473a4f6ac4d81deadbf5689e3579f_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-47d473a4f6ac4d81deadbf5689e3579f_720w.webp)
 
-![img](./Vision%20Transformer.assets/v2-a55556d6193de2c4c352fef51b6302c1_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-a55556d6193de2c4c352fef51b6302c1_720w.webp)
 
-![img](./Vision%20Transformer.assets/v2-1eb1afb0db41afa9414b9ad8da2cc00f_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-1eb1afb0db41afa9414b9ad8da2cc00f_720w.webp)
 
-![img](./Vision%20Transformer.assets/v2-120e87528b7b80db050dd26c861c48ba_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-120e87528b7b80db050dd26c861c48ba_720w.webp)
 
-![img](./Vision%20Transformer.assets/v2-d4bd615abc8547385415512c4d4e0470_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-d4bd615abc8547385415512c4d4e0470_720w.webp)
 
-![img](./Vision%20Transformer.assets/v2-b483bbdff8181f3bef9c5445d86b2d36_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-b483bbdff8181f3bef9c5445d86b2d36_720w.webp)
 
 #### Attention mask 3
 
 我认为这是Swin Transformer的精华，通过设置合理的mask，让`Shifted Window Attention`在与`Window Attention`相同的窗口个数下，达到等价的计算结果。首先我们对Shift Window后的每个窗口都给上index，并且做一个`roll`操作（window_size=2, shift_size=-1）
 
-![img](./Vision%20Transformer.assets/v2-52b0bec2b0e2341e1eab1fd6342bc9e6_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-52b0bec2b0e2341e1eab1fd6342bc9e6_720w.webp)
 
 我们希望在计算Attention的时候，**让具有相同index QK进行计算，而忽略不同index QK计算结果**。
 
 最后正确的结果如下图所示 (PS: 这个图的Query Key画反了。。。应该是4x1 和 1x4 做矩阵乘，读者们自行交换下位置，抱歉）
 
-![img](./Vision%20Transformer.assets/v2-af19485ae400a2f52ede6306fcfb078e_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-af19485ae400a2f52ede6306fcfb078e_720w.webp)
 
 而要想在原始四个窗口下得到正确的结果，我们就必须给Attention的结果加入一个mask（如上图最右边所示）
 
@@ -520,7 +520,7 @@ where $Q, K, V \in \mathbb{R}^{M^2 \times \boldsymbol{d}}$ are the query, key, a
 
 Since a window size is $M \times M$, the relative position along each axis lies in the range $[-M+1, M-1]$ as shown in the following Fig 
 
-![space-1.jpg](./Vision%20Transformer.assets/swint14.png)
+![space-1.jpg](/assets/Vision%20Transformer.assets/swint14.png)
 
 # Scalable Diffusion Models with Transformers (TBD)
 
@@ -603,13 +603,13 @@ $$
 
 
 
-![img](./Vision%20Transformer.assets/v2-00d94bdf03ccd7a8ef3b61f0726254b7_720w.webp)
+![img](/assets/Vision%20Transformer.assets/v2-00d94bdf03ccd7a8ef3b61f0726254b7_720w.webp)
 
 
 
 In a typical diffusion model, a U-Net convolutional neural network (CNN) learns to estimate the noise to be removed from an image. ==DiTs replace this U-Net with a transformer==. This replacement shows that U-Net’s inductive bias is not necessary for the performance of diffusion models.
 
-![Architecture of diffusion transformer](./Vision%20Transformer.assets/ZfgaqMmUzjad_UTL_image1.jpeg)
+![Architecture of diffusion transformer](/assets/Vision%20Transformer.assets/ZfgaqMmUzjad_UTL_image1.jpeg)
 
 **Patch化**：DiT的输入是通过VAE后的一个稀疏的表示z（256×256×3的图片，z为32×32×4），类似其他ViTs的方式，首先要将输入转成patch，文章采用超参p=2，4，8进行对比实验。
 
@@ -624,4 +624,4 @@ In a typical diffusion model, a U-Net convolutional neural network (CNN) learns 
 
 **Transformer Decoder**：在Transformer最上层需要预测噪音，因为Transformer可以保证大小与输入一致，所以在最上层使用一层线性进行decoder。
 
-![image-20240411102956181](./Vision%20Transformer.assets/image-20240411102956181.png)
+![image-20240411102956181](/assets/Vision%20Transformer.assets/image-20240411102956181.png)
