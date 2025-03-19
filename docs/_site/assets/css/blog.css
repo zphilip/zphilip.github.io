@@ -36,7 +36,7 @@ header .site-title {
 }
 main {
   margin: 0 auto;
-  max-width: 650px;
+  max-width: 850px;
   padding: 3rem 0;
 }
 
@@ -175,7 +175,7 @@ main {
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
   header .site-title {
     font-size: 3rem;
   }

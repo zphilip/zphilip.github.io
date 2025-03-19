@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  
+  <!-- include collecttags -->
+  
+  
+
+
+
+
+
+  
+
+  <title>
+    
+      working todo &middot; Zhu Philip's AI Journey
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- merge something else -->
+  
+  <link rel="stylesheet" href="/assets/css/blog.css" />
+  
+  
+  <link rel="stylesheet" href="/assets/css/common.css" />
+  <script src="/assets/js/categories.js"></script>  
+   
+
+  <!-- MathJax -->
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script> 
+
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89141653-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89141653-4');
+</script>
+
+
+
+  <body>
+
+    <link rel="stylesheet" href="/assets/style-3.css">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <div align="center">
+          <img src="/assets/profile-pixel.png" class="profilepic pt-3 pb-2">
+        </div>
+        <!-- <a href="/"> -->
+          Zhu Philip's AI Journey
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      <!-- Manual set order -->
+      <a class="sidebar-nav-item" href="/categories">Categories</a>
+      <a class="sidebar-nav-item" href="/working">Working</a>
+      <a class="sidebar-nav-item" href="/publication">Publication</a>
+      <a class="sidebar-nav-item" href="/cv">cv</a>
+      <!-- <a class="sidebar-nav-item" href="/projects">Projects</a> -->
+      <a class="sidebar-nav-item" href="/about">About</a>
+
+      <!-- Uncomment for auto order -->
+      <!-- 
+
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/cv/">CV</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/publication/">publications</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/working/">Working</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+       -->
+
+      
+      <!-- <a class="sidebar-nav-item" href="https://github.com/zphilip/zphilip.github.io">GitHub project</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v</span> -->
+      
+<div id="social-media">
+    
+    
+        
+        
+            <a href="mailto:zphilip48@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+        
+    
+        
+        
+            <a href="https://www.linkedin.com/in/tianda-zhu-37a5b031" title="Linkedin"><i class="fab fa-linkedin"></i></a>
+        
+    
+        
+        
+            <a href="https://github.com/zphilip" title="GitHub"><i class="fab fa-github"></i></a>
+        
+    
+        
+        
+            <a href="https://www.youtube.com/user/zphilip" title="YouTube"><i class="fab fa-youtube"></i></a>
+        
+    
+</div>
+
+
+    </nav>
+
+    <p>&copy; 2025. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="page">
+  <h1 class="page-title">working todo</h1>
+  <ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />#task compare the nougat small model and code with the nougat big model what’s the different between them.  🔼 🛫 2024-01-09 : ✅ 2024-01-21</li>
+  <li class="task-list-item">transformer version change to  4.34.1, then it work (static saving safe is in newer version)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />#task based work output of above task let’s partially loading the Chinese Bart pre-trained model data 🔼 🛫 2024-01-09 ✅ 2024-02-29</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />prepare one small set dataset include Chinese data for training 🔼 🛫 2024-01-09 ✅ 2024-01-21</li>
+  <li class="task-list-item">small set dataset — nougat-dataset-test include - ocrpadded, ocrset</li>
+  <li class="task-list-item">Done. the original bart model (“facebook/mbart-large-50”) already has multiple language support include chinese Bart pre-trained ,</li>
+  <li class="task-list-item">languages covered
+Arabic (ar_AR), Czech (cs_CZ), German (de_DE), English (en_XX), Spanish (es_XX), Estonian (et_EE), Finnish (fi_FI), French (fr_XX), Gujarati (gu_IN), Hindi (hi_IN), Italian (it_IT), Japanese (ja_XX), Kazakh (kk_KZ), Korean (ko_KR), Lithuanian (lt_LT), Latvian (lv_LV), Burmese (my_MM), Nepali (ne_NP), Dutch (nl_XX), Romanian (ro_RO), Russian (ru_RU), Sinhala (si_LK), Turkish (tr_TR), Vietnamese (vi_VN), Chinese (zh_CN), Afrikaans (af_ZA), Azerbaijani (az_AZ), Bengali (bn_IN), Persian (fa_IR), Hebrew (he_IL), Croatian (hr_HR), Indonesian (id_ID), Georgian (ka_GE), Khmer (km_KH), Macedonian (mk_MK), Malayalam (ml_IN), Mongolian (mn_MN), Marathi (mr_IN), Polish (pl_PL), Pashto (ps_AF), Portuguese (pt_XX), Swedish (sv_SE), Swahili (sw_KE), Tamil (ta_IN), Telugu (te_IN), Thai (th_TH), Tagalog (tl_XX), Ukrainian (uk_UA), Urdu (ur_PK), Xhosa (xh_ZA), Galician (gl_ES), Slovene (sl_SI)</li>
+</ul>
+
+<p>The loading such as :  ==MBartForCausalLM.from_pretrained( “facebook/mbart-large-50” ).state_dict()==</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />adding authentication function to android and pc side client. let’s start this after Chinese supporting in server side.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />adding authentication and security function to server side (multiple user supporting). let’s start this after Chinese supporting in server side.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />today’s work 📅 2024-01-11 , ⏫  try to modify the ocr padding method to scale the ocr png to size fit  swin-transformer , then padding.  I suspect the training error is caused by too small png 🛫 padding.  current size is 672(w)x896(h)x8.. arxiv size is 816x1056x24.. something wrong. ✅ 2024-02-29</li>
+  <li class="task-list-item">notice that the original code has the resize function to make the small picture to fit the 886*672 size , so using the original un-padding figure (latex ocr dataset image) to feed the current training. but still have the “repetition error”</li>
+  <li class="task-list-item">==(DONE) put the original un-padding figure  and the padded figure together into the training== , it seems that the training have no “repetition error” still unclear why it is so????
+    <ul>
+      <li>this have the repetition error… while using bigger dataset from arXiv orignal data</li>
+      <li>I am think the VIT how to train the all blank image… it is lead to some error , or how it is treated , get some test ???</li>
+      <li>how about using all back or white image as training data</li>
+      <li>how the voice to text treat the white noise? how the blank image is treated</li>
+      <li>in normal ViT , the fixed size image is always required…,   how about reserve the SWIN transformer architecture, change from low level resolution to high resolution</li>
+      <li>#todo Need to check the result after above change….</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />bleu score ✅ 2024-01-12, the bleu score is noted at [[Transformer_learning#3.2 Bleu Score]]</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Pytorch-view的用法 ✅ 2024-02-29</li>
+  <li class="task-list-item">在pytorch中view函数的作用为重构张量的维度，相当于numpy中resize（）的功能，但是用法可能不太一样。如下例所示</li>
+</ul>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; tt1=torch.tensor([-0.3623, -0.6115,  0.7283,  0.4699,  2.3261,  0.1599])
+&gt;&gt;&gt; result=tt1.view(3,2)
+&gt;&gt;&gt; result
+tensor([[-0.3623, -0.6115],
+        [ 0.7283,  0.4699],
+        [ 2.3261,  0.1599]])
+</code></pre></div></div>
+
+<ol>
+  <li>torch.view(参数a，参数b，…)</li>
+</ol>
+
+<p>在上面例子中参数a=3和参数b=2决定了将一维的tt1重构成3x2维的张量。</p>
+
+<ol>
+  <li>有的时候会出现torch.view(-1)或者torch.view(参数a，-1)这种情况。
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; tt2=torch.tensor([[-0.3623, -0.6115],
+...         [ 0.7283,  0.4699],
+...         [ 2.3261,  0.1599]])
+&gt;&gt;&gt; result=tt2.view(-1)
+&gt;&gt;&gt; result
+tensor([-0.3623, -0.6115,  0.7283,  0.4699,  2.3261,  0.1599])
+</code></pre></div>    </div>
+    <p>由上面的案例可以看到，如果是torch.view(-1)，则原张量会变成一维的结构。</p>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; tt3=torch.tensor([[-0.3623, -0.6115],
+...         [ 0.7283,  0.4699],
+...         [ 2.3261,  0.1599]])
+&gt;&gt;&gt; result=tt3.view(2,-1)
+&gt;&gt;&gt; result
+tensor([[-0.3623, -0.6115,  0.7283],
+     [ 0.4699,  2.3261,  0.1599]])
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>由上面的案例可以看到，如果是torch.view(参数a，-1)，则表示在参数b未知，参数a已知的情况下自动补齐列向量长度，在这个例子中a=2，tt3总共由6个元素，则b=6/2=3。</p>
+
+<p>**Albumentations数据增强方法 **, practice in notebook “/labs/nougat_unet/predict.ipynb”, refer page <a href="https://blog.csdn.net/qq_27039891/article/details/100795846">Albumentations数据增强方法_shiftscalerotate-CSDN博客</a></p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Long Table splitting into small one ✅ 2024-03-07</li>
+  <li class="task-list-item">almost done with , extract_table/saveHtmlFile/split_row function in crawler__dataset_generate.py .  this function split the html table into different small table.</li>
+  <li class="task-list-item">the problem is if the table have multiple figure embedded,  the size of the html is not controlled well</li>
+  <li class="task-list-item">table size is not good way to estimate.  current only calculate the text/word count</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Text emotion /sentiment split, text to voice model study…etc
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />checked the Text emotion and text voice internet resources ✅ 2024-03-07</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />next to setup one local text to voice model to test</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="daily-work-notes-2024-03-07">Daily Work Notes 2024-03-07</h1>
+<p>1, in last few days , I try to setup <a href="https://github.com/fofr/cog-face-to-sticker">fofr/cog-face-to-sticker: face-to-sticker (github.com)</a> in my local machine. it is one model/workflow with ComfyUI — No successe yet.  It is maybe the memeory issue. I will continue to do this and the final goal is integarated with my website and give some trail.</p>
+
+<p>2, in last few days, I try to combine the FastAPI and gradio together for my AIWorm.cn/Nougat+ website.  some problem goging.</p>
+
+<p>3, learning content of today :</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />#task PCA <a href="https://www.youtube.com/watch?v=fkf4IBRSeEc&amp;list=WL&amp;index=111">Principal Component Analysis (PCA) (youtube.com)</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />#task Setup 🛫 2024-03-07 face-to-sticker</li>
+</ul>
+
+<h1 id="daily-work-notes-2024-03-08">Daily Work Notes 2024-03-08</h1>
+<p>1, continue doing docker maker for nougat webserver which starting from yesterday
+2, continue learning PCA 
+3, Start the nougat learning note to record the all result, following is the nougat middle model using partially arxiv data and some Chinese internet data crawlered 
+![[W&amp;B Chart 2024_3_8 09_20_34.png]]
+![[W&amp;B Chart 2024_3_8 09_20_54.png]]
+This is the previous small model training loss figure. every Time stop training and restart from checkpoint, you will see the loss is high.. unsure why?</p>
+
+<p>![[W&amp;B Chart 2024_3_4 16_21_15 1.png]]
+Previous Vit+unet transformer test result
+![[W&amp;B Chart 2024_3_8 09_32_58.png]]</p>
+
+<h2 id="nested-regex-expression-note">nested regex expression note:</h2>
+<p>example：<a href="https://regex101.com/r/NsVPFp/3">regex101: build, test, and debug regex</a> 
+<code class="language-plaintext highlighter-rouge">\(+\*+  (?:[^*(]|(?:\*+[^)*])|(?:\(+[^*(]))*     \*+\)+</code>
+	<code class="language-plaintext highlighter-rouge">/\(+\*+ (?:(?:</code>
+	        <code class="language-plaintext highlighter-rouge">\(+\*+    (?:(?:</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                   `\(+\*+       (?:[ ^*(  ]  |  (?  :\*+[^)*]  )  |  (?:\(+[^*(])   )*`
+
+                   `\*+\)+        )|[^*(]|(?:\*+[^)*])|(?:\(+[^*(]))*`
+
+        `\*+\)+    )|[^*(]|(?:\*+[^)*])|(?:\(+[^*(]))*`
+ 
+`\*+\)+` [regex - Regular expressions for pattern matching time format in python - Stack Overflow](https://stackoverflow.com/questions/62584721/regular-expressions-for-pattern-matching-time-format-in-python) ### nested regex expression : `p{1} = \{  (?:[^{}])*   \}` `p{2} = \{  (?:   (?:   p{1}   ) |  (?:[^{}])  )*   \}` [regex101: build, test, and debug regex](https://regex101.com/r/JewQGp/1/) https://regex101.com/r/4liwhI/1
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">\{  (?:(?:</code> <br />
+     <code class="language-plaintext highlighter-rouge">\{    (?:(?:</code> <br />
+           <code class="language-plaintext highlighter-rouge">\{    (?:[^{}])*</code>  <br />
+               <code class="language-plaintext highlighter-rouge">\}   )|(?:[^{}]))*</code> <br />
+                    <code class="language-plaintext highlighter-rouge">\}    )|(?:[^{}]))*</code> <br />
+                          <code class="language-plaintext highlighter-rouge">\}</code></p>
+<ul>
+  <li>
+    <p>replace with (\begin{([a-z]+?*?)}) to the {  so we have following
+  <code class="language-plaintext highlighter-rouge">p{1} = (?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?!\\begin{\2}|\\end{\2}).)*(\\end{\2})</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">(?:[^{}])* ---- (?:(?!\\begin{\2}|\\end{\2}).)*</code>  exclude structure 排除结构 , for example <code class="language-plaintext highlighter-rouge">(?&lt;!\\|\$)(\$)([^\$]+)(\$)(?:(?![$|\\]).)</code>
+  https://regex101.com/r/yngAW3/1
+  <code class="language-plaintext highlighter-rouge">p{2} = (?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?:(?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?!\\begin{\2}|\\end{\2}).)*(\\end{\2}))|(?:(?!\\begin{\2}|\\end{\2}).)*)*(\\end{\2})</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">p{3} = (?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?:(?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?:(?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?!\\begin{\2}|\\end{\2}).)*(\\end{\2}))|(?:(?!\\begin{\2}|\\end{\2}).)*)*(\\end{\2}))|(?:(?!\\begin{\2}|\\end{\2}).)*)*(\\end{\2})</code></p>
+  </li>
+  <li>
+    <p>final version 
+  <code class="language-plaintext highlighter-rouge">"(?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?:(?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?:(?&lt;!\\)(\\begin{([a-z]+?\*?)})(?:(?!\\begin{\6}|\\end{\6}).)*(\\end{\6}))|(?:(?!\\begin{\4}|\\end{\4}).))*(\\end{\4}))|(?:(?!\\begin{\2}|\\end{\2}).))*(\\end{\2})"gm</code>
+  https://regex101.com/r/7zJ0g1/1</p>
+
+    <p><code class="language-plaintext highlighter-rouge">(?:[ ^*(  ]  |  (?  :\*+[^)*]  )  |  (?:\(+[^*(])   )*</code>
+  <code class="language-plaintext highlighter-rouge">(?:[ ^{}                                        ]   )*</code>
+  <code class="language-plaintext highlighter-rouge">(?:[^(\\begin{([a-z]+?\*?)})+(\\end{\2})+])*</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">)|    [^*(] | (?:\*+[^)*])   |  (?:\(+[^*(])         )*</code>
+  <code class="language-plaintext highlighter-rouge">)|    (?: [^{}])                                   )*</code>
+  <code class="language-plaintext highlighter-rouge">)|    (?: [^ (\\begin{([a-z]+?\*?)})+(\\end{\2})+]) )*</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">(\\begin{([a-z]+?\*?)})+   (?:(?:</code>
+      <code class="language-plaintext highlighter-rouge">(\\begin{([a-z]+?\*?)})+     (?:(?:</code>
+              <code class="language-plaintext highlighter-rouge">(\\begin{([a-z]+?\*?)})+     (?:[^*(]|(?:\*+[^)*])|(?:\(+[^*(]))*</code>
+                       <code class="language-plaintext highlighter-rouge">(\\end{\2})+            )|[^*(]|(?:\*+[^)*])|(?:\(+[^*(]))*</code>
+                                <code class="language-plaintext highlighter-rouge">(\\end{\2})+       )|[^*(]|(?:\*+[^)*])|(?:\(+[^*(]))*</code>
+                                        <code class="language-plaintext highlighter-rouge">(\\end{\2})+</code></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                    `(?:[^{\1}]|(?:\*+[^(\\end{\2})+])|(?:\(+[^{\1}]))*`
+
+                                    `(\\begin{([a-z]+?\*?)})[^(\\end)](.+?)(\\end{\2})(.+?)(\\end{\2})+`
+
+
+
+                                    `(\\begin{([a-z]+?\*?)})+(?:(?:(\\begin{([a-z]+?\*?)})+(?:(?:(\\begin{([a-z]+?\*?)})+(?:[^(\\begin{\2})(\\end{\2})]|(?:\*+[^(\\end{\2})])|(?:\(+[^(\\begin{\2})]))*(\\end{\2})+)[^(\\begin{\2})(\\end{\2})]|(?:\*+[^(\\end{\2})])|(?:\(+[^(\\begin{\2})]))*(\\end{\2})+)[^(\\begin{\2})^(\\end{\2})]|(?:\*+[^(\\end{\2})])|(?:\(+[^(\\begin{\2})]))*(\\end{\2})+`
+</code></pre></div>    </div>
+
+    <p><code class="language-plaintext highlighter-rouge">(\\begin{([a-z]+?\*?)})(?:[^(\\begin{\2})]|(?:\*+[^(\\end{\2})])|(?:\(+[^(\\begin{\2})]))*(\\end{\2})</code>                                  <br />
+    <code class="language-plaintext highlighter-rouge">^(?!(red|green|blue)$).*$</code></p>
+
+    <h2 id="hard-disk-mount-by-uuid">hard-disk mount by uuid</h2>
+    <p><code class="language-plaintext highlighter-rouge">/dev/sdd        /data/data1     ext4    defaults        0       0</code>
+  <code class="language-plaintext highlighter-rouge">/dev/sdc        /data/data2     ext4    defaults        0       0</code>
+  <code class="language-plaintext highlighter-rouge">/dev/sdb        /data/data3     ext4    defaults        0       0</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">lrwxrwxrwx 1 root root 10 Jan 10 06:24 39e64f6f-4e8d-4f78-93bc-59179f553043 -&gt; ../../sda2</code>
+  <code class="language-plaintext highlighter-rouge">lrwxrwxrwx 1 root root 10 Jan 10 06:24 3a6a811a-10b0-4e56-8675-f6266f6db518 -&gt; ../../dm-0</code>
+  <code class="language-plaintext highlighter-rouge">lrwxrwxrwx 1 root root  9 Jan 10 06:24 799f8d5f-e372-465c-b5a9-aa42db0cee36 -&gt; ../../sdb</code>
+  <code class="language-plaintext highlighter-rouge">lrwxrwxrwx 1 root root  9 Jan 10 06:24 7b800e22-10f5-4b8a-96ca-856b8a77fdb6 -&gt; ../../sdd</code>
+  <code class="language-plaintext highlighter-rouge">lrwxrwxrwx 1 root root  9 Jan 10 06:24 d0e23ef0-ae13-4277-8671-340b4a0fb934 -&gt; ../../sdc</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">scsi-1ATA_INTEL_SSDSC2BB800G6R_BTWA641100TT800HGN -&gt; ../../sda</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">ata-INTEL_SSDSC2BB800G6R_BTWA641100TT800HGN -&gt; ../../sda</code>
+  <code class="language-plaintext highlighter-rouge">ata-TOSHIBA_HDWE160_971UK1WTF56D -&gt; ../../sdd</code>
+  <code class="language-plaintext highlighter-rouge">ata-TOSHIBA_MD04ACA500_55E8K1SFFS9A -&gt; ../../sdc</code>
+  <code class="language-plaintext highlighter-rouge">ata-WDC_WUS721010ALE6L4_VCK8940P -&gt; ../../sdb</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">(base) userroot@userroot:~$ blkid</code>
+  <code class="language-plaintext highlighter-rouge">/dev/sda2: UUID="39e64f6f-4e8d-4f78-93bc-59179f553043" TYPE="ext4" PARTUUID="28c6cfbd-5edc-4e53-8342-b76c1f91dd50"</code>
+  <code class="language-plaintext highlighter-rouge">/dev/sda3: UUID="7dNYf8-rzin-MHJB-895r-HQWt-pL5c-A3tedU" TYPE="LVM2_member" PARTUUID="257300e4-a1fa-4512-bf9b-963d5e4292bc"</code>
+  <code class="language-plaintext highlighter-rouge">/dev/sdc: UUID="d0e23ef0-ae13-4277-8671-340b4a0fb934" TYPE="ext4"</code>
+  <code class="language-plaintext highlighter-rouge">/dev/sdd: UUID="7b800e22-10f5-4b8a-96ca-856b8a77fdb6" TYPE="ext4"</code>
+  <code class="language-plaintext highlighter-rouge">/dev/sdb: UUID="799f8d5f-e372-465c-b5a9-aa42db0cee36" TYPE="ext4"</code>
+  <code class="language-plaintext highlighter-rouge">/dev/mapper/ubuntu--vg-ubuntu--lv: UUID="3a6a811a-10b0-4e56-8675-f6266f6db518" TYPE="ext4"</code></p>
+    <ul>
+      <li>fstab:
+  <code class="language-plaintext highlighter-rouge">UUID=7b800e22-10f5-4b8a-96ca-856b8a77fdb6        /data/data1     ext4    defaults        0       0</code>
+  <code class="language-plaintext highlighter-rouge">UUID=d0e23ef0-ae13-4277-8671-340b4a0fb934        /data/data2     ext4    defaults        0       0</code>
+  <code class="language-plaintext highlighter-rouge">UUID=799f8d5f-e372-465c-b5a9-aa42db0cee36        /data/data3     ext4    defaults        0       0</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="daily-work-notes-2024-03-11">Daily Work Notes 2024-03-11</h1>
+<ol>
+  <li>try to rebuild the comfyui’s environment/and try cog docker build , the problem might be the environment issue</li>
+  <li>continue the work task “aiworm.cn websit setup”</li>
+  <li>continue the learning task “pca”</li>
+</ol>
+
+<h1 id="daily-work-notes-2024-03-13">Daily Work Notes 2024-03-13</h1>
+<ol>
+  <li>still failed to setup the face to sticker comfyui environment… this time using the windows comfyui</li>
+  <li>aiworm.cn websit work onging , almost done…. the problem now for those model accuracy is not enough.   more bigger model? beside this, while using the Chinese and English mixed text , it will translate part of it, it is not what wanted….  it need to dig out
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />mBart or Bert model stopping translate but just inference in nougat task</li>
+    </ul>
+  </li>
+  <li>PCA/SVD continue.</li>
+  <li>stop training in the AutoDL in Epoch 17 … I will add new code to separate the Chinese and English text in tokenizer… it might be some mistaken I don’t found out before :
+ BERT多语言版本预训练模型上线前需要对句子进行人工分字
+<img src="/assets/obsidian_assets/Pasted image 20240313095711.png" alt="" /></li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def trans(sen):
+    """
+    Translates a sentence containing both Chinese and English characters.
+    If a word is in Chinese, it adds the word and its translation.
+    Otherwise, it keeps the word unchanged.
+    """
+    buf = ""
+    for word in sen:
+        if "\u4e00" &lt;= word &lt;= "\u9fff":
+            buf += f'{word} ' + "translation of Chinese character"
+        else:
+            buf += word
+    return buf.replace(' ', ',')
+
+if __name__ == "__main__":
+    chline = "包含中文字符的句子。"
+    enline = 'The use of citations in evaluative scientometrics as a proxy for quality'
+
+    chenline = "包含英文The，包含中文 use of包含英文citations in evaluative scientometrics as a proxy for quality"
+    print(trans(chline))
+    print(trans(enline))
+    print(trans(chenline))
+</code></pre></div></div>
+
+<h1 id="daily-work-notes-2024-03-17">Daily Work Notes 2024-03-17</h1>
+<p><img src="/assets/obsidian_assets/Pasted image 20240318093438.png" alt="Pasted image 20240318093438.png" /></p>
+<h1 id="daily-work-notes-2024-03-25">Daily Work Notes 2024-03-25</h1>
+<p><img src="/assets/obsidian_assets/Pasted image 20240325101352.png" alt="img" style="zoom: 100%;" /></p>
+
+<ol class="task-list">
+  <li>task PCA  learning is finished. the note should be published to blog</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />publish PCA learning note to blog</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />start to prepare the article about the nougat/OCR structure improvement</li>
+  <li class="task-list-item">finish the improvements about upload file and at same time give parameters to fastapi.
+    <ol>
+      <li><a href="https://stackoverflow.com/questions/77254763/how-to-post-both-files-and-a-list-of-json-data-in-fastapi/77279612#77279612">python - How to POST both Files and a List of JSON data in FastAPI? - Stack Overflow</a></li>
+      <li><a href="https://stackoverflow.com/questions/65504438/how-to-add-both-file-and-json-body-in-a-fastapi-post-request">python - How to add both file and JSON body in a FastAPI POST request? - Stack Overflow</a></li>
+      <li>current using simple way as following:</li>
+    </ol>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Method 1
+
+As described [here](https://fastapi.tiangolo.com/tutorial/request-forms-and-files/), one can define files and form fileds at the same time using `File` and `Form`. Below is a working example. In case you had a large number of parameters and would like to **define them separately from the endpoint**, please have a look at [this answer](https://stackoverflow.com/a/71650857/17865804) on how to create a custom dependency class instead.
+
+**app.py**
+	from fastapi import Form, File, UploadFile, Request, FastAPI
+	from typing import List
+	from fastapi.responses import HTMLResponse
+	from fastapi.templating import Jinja2Templates
+	
+	app = FastAPI()
+	templates = Jinja2Templates(directory="templates")
+	
+	
+	@app.post("/submit")
+	def submit(
+	    name: str = Form(...),
+	    point: float = Form(...),
+	    is_accepted: bool = Form(...),
+	    files: List[UploadFile] = File(...),
+	):
+	    return {
+	        "JSON Payload": {"name": name, "point": point, "is_accepted": is_accepted},
+	        "Filenames": [file.filename for file in files],
+	    }
+	
+	
+	@app.get("/", response_class=HTMLResponse)
+	def main(request: Request):
+	    return templates.TemplateResponse("index.html", {"request": request})
+
+test.py:
+	import requests
+	url = 'http://127.0.0.1:8000/submit'
+	files = [('files', open('test_files/a.txt', 'rb')), ('files', open('test_files/b.txt', 'rb'))]
+	data = {"name": "foo", "point": 0.13, "is_accepted": False}
+	resp = requests.post(url=url, data=data, files=files) 
+	print(resp.json())
+</code></pre></div></div>
+
+<ol>
+  <li>start to fastAPI authentication/user data to database????
+    <ul>
+      <li>save user data</li>
+      <li>security</li>
+    </ul>
+  </li>
+</ol>
+
+</div>
+
+    </div>
+
+  </body>
+</html>

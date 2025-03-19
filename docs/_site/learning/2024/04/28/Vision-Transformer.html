@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  
+  <!-- include collecttags -->
+  
+  
+
+
+
+
+
+  
+
+  <title>
+    
+      Vision Transformer &middot; Zhu Philip's AI Journey
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- merge something else -->
+  
+  <!-- merge something else 
+  <link rel="stylesheet" href="/assets/css/post.css" />
+  <link rel="stylesheet" href="/assets/css/syntax.css" /> -->
+  
+  
+  <link rel="stylesheet" href="/assets/css/common.css" />
+  <script src="/assets/js/categories.js"></script>  
+  
+  <script defer src="/assets/js/lbox.js"></script>
+   
+
+  <!-- MathJax -->
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script> 
+
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89141653-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89141653-4');
+</script>
+
+
+
+  <body>
+
+    <link rel="stylesheet" href="/assets/style-3.css">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <div align="center">
+          <img src="/assets/profile-pixel.png" class="profilepic pt-3 pb-2">
+        </div>
+        <!-- <a href="/"> -->
+          Zhu Philip's AI Journey
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      <!-- Manual set order -->
+      <a class="sidebar-nav-item" href="/categories">Categories</a>
+      <a class="sidebar-nav-item" href="/working">Working</a>
+      <a class="sidebar-nav-item" href="/publication">Publication</a>
+      <a class="sidebar-nav-item" href="/cv">cv</a>
+      <!-- <a class="sidebar-nav-item" href="/projects">Projects</a> -->
+      <a class="sidebar-nav-item" href="/about">About</a>
+
+      <!-- Uncomment for auto order -->
+      <!-- 
+
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/cv/">CV</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/publication/">publications</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/working/">Working</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+       -->
+
+      
+      <!-- <a class="sidebar-nav-item" href="https://github.com/zphilip/zphilip.github.io">GitHub project</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v</span> -->
+      
+<div id="social-media">
+    
+    
+        
+        
+            <a href="mailto:zphilip48@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+        
+    
+        
+        
+            <a href="https://www.linkedin.com/in/tianda-zhu-37a5b031" title="Linkedin"><i class="fab fa-linkedin"></i></a>
+        
+    
+        
+        
+            <a href="https://github.com/zphilip" title="GitHub"><i class="fab fa-github"></i></a>
+        
+    
+        
+        
+            <a href="https://www.youtube.com/user/zphilip" title="YouTube"><i class="fab fa-youtube"></i></a>
+        
+    
+</div>
+
+
+    </nav>
+
+    <p>&copy; 2025. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Vision Transformer</h1>
+  <span class="post-date">28 Apr 2024</span>
+  <p>Refer 1: [[Transformer_learning]] for general Transformer tech. 
+Refer 2: [[transformer_implementation]] for general  Transformer tech.</p>
+
+<h1 id="swin-transformer">Swin Transformer</h1>
+
+<p>refer to https://arxiv.org/abs/2103.14030</p>
+
+<p>refer to <a href="https://zhuanlan.zhihu.com/p/367111046">图解Swin Transformer - 知乎 (zhihu.com)</a></p>
+
+<p>refer to ““/workspace/deeplearning/NLP/Vision Transformers from Scratch (PyTorch).ipynb” and “/workspace/deeplearning/NLP/vision-transformer-vit-tutorial-baseline.ipynb”</p>
+
+<ul>
+  <li>
+    <p>pre-condition: Vision Transformer (ViT) from the paper “An Image is Worth 16x16 Words” has showed promising results for some high-level vision tasks such as image classification</p>
+  </li>
+  <li>
+    <p>issue: the global attention mechanism in ViT scales with quadratic computational complexity with respect to the resolution of an image which is not sustainable for tasks that work with images in the high resolution space</p>
+  </li>
+  <li>
+    <p>answer: Microsoft proposed the Swin-Transformer which features a local attention mechanism based on shifting windows whose computational complexity scales linearly and could serve as an all-purpose backbone for general vision tasks.</p>
+  </li>
+</ul>
+
+<p>The model (Swin-Transformer) starts by <strong>splitting an image into p x p non-overlapping patches with a linear embedding exactly like ViT</strong>. Our image transforms from <strong>(h,w,c) to (h/p,w/p,c<em>p^2) from patch partitioning, and then to **(h/p * w/p, C)</em></strong>* after the linear projection. We treat the h*w patches as the tokens of the transformer sequence and C as our embedding dimension.</p>
+
+<h2 id="swin-transformer的整体架构">Swin Transformer的整体架构</h2>
+
+<p>整个模型采取层次化的设计，一共包含4个Stage，每个stage都会缩小输入特征图的分辨率，像CNN一样逐层扩大感受野。</p>
+
+<ul>
+  <li>在输入开始的时候，做了一个<code class="language-plaintext highlighter-rouge">Patch Embedding</code>，将图片切成一个个图块，并嵌入到<code class="language-plaintext highlighter-rouge">Embedding</code>。</li>
+  <li>在每个Stage里，由<code class="language-plaintext highlighter-rouge">Patch Merging</code>和多个Block组成。</li>
+  <li>其中<code class="language-plaintext highlighter-rouge">Patch Merging</code>模块主要在每个Stage一开始降低图片分辨率。</li>
+  <li>而Block具体结构如右图所示，主要是<code class="language-plaintext highlighter-rouge">LayerNorm</code>，<code class="language-plaintext highlighter-rouge">MLP</code>，<code class="language-plaintext highlighter-rouge">Window Attention</code> 和 <code class="language-plaintext highlighter-rouge">Shifted Window Attention</code>组成 (为了方便讲解，我会省略掉一些参数)</li>
+</ul>
+
+<p><img src="./Vision%20Transformer.assets/17fyQm7H34kXGwENxyK1GYw.png" alt="img" /></p>
+
+<p>We then send the image into a series of transformer blocks and patch merging blocks.</p>
+
+<ul>
+  <li>
+    <p>The transformer blocks feature attention computed locally within windows with an alternating shifted window configuration to allow the model to gain global input information. The attention computation also features relative embeddings to directly encode positional information into the model.</p>
+  </li>
+  <li>
+    <p>In between these transformer blocks we use <strong>patch merging layers</strong> to decrease the height and width of our images while increasing the channel size/embedding dimension of the model. This is similar to how CNN’s transform the input as you go deeper into the model. The goal is to have the Swin-Transformer work as a computer vision backbone for various vision tasks just like how the CNN has formally been used in computer vision.</p>
+
+    <p>其中有几个地方处理方法与ViT不同：</p>
+
+    <ul>
+      <li>ViT在输入会给embedding进行位置编码。而Swin-T这里则是作为一个<strong>可选项</strong>（<code class="language-plaintext highlighter-rouge">self.ape</code>），Swin-T是在计算Attention的时候做了一个<code class="language-plaintext highlighter-rouge">相对位置编码</code></li>
+      <li>ViT会单独加上一个可学习参数，作为分类的token。而Swin-T则是<strong>直接做平均</strong>，输出分类，有点类似CNN最后的全局平均池化层</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./Vision%20Transformer.assets/image-20240116091743493.png" alt="image-20240116091743493" /></p>
+
+<p><img src="./Vision%20Transformer.assets/image-20240116092157934.png" alt="image-20240116092157934" /></p>
+
+<p><img src="./Vision%20Transformer.assets/image-20240116140930491.png" alt="image-20240116140930491" /></p>
+
+<p><img src="./Vision%20Transformer.assets/image-20240116193809061.png" alt="image-20240116193809061" /></p>
+
+<h2 id="patch-embedding"><strong>Patch Embedding</strong></h2>
+
+<p>在输入进Block前，我们需要将图片切成一个个patch，然后嵌入向量。</p>
+
+<p>具体做法是对原始图片裁成一个个 <code class="language-plaintext highlighter-rouge">patch_size * patch_size</code>的窗口大小，然后进行嵌入。</p>
+
+<p>这里可以通过二维卷积层，<strong>将stride，kernelsize设置为patch_size大小</strong>。设定输出通道来确定嵌入向量的大小。最后将H,W维度展开，并移动到第一维度</p>
+
+<p>==Patch Partition + Linear Embedding==</p>
+
+<blockquote>
+  <p>“It first splits an input RGB image into non-overlapping patches by a patch splitting module, like ViT. Each patch is treated as a “token” and its feature is set as a concatenation of the raw pixel RGB values. In our implementation, we use a patch size of 4 × 4 and thus the feature dimension of each patch is 4 × 4 × 3 = 48. A linear embedding layer is applied on this raw-valued feature to project it to an arbitrary dimension (denoted as C).”</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class SwinEmbedding(nn.Module):
+
+    '''
+    input shape -&gt; (b,c,h,w)
+    output shape -&gt; (b, (h/4 * w/4), C)
+    '''
+
+    def __init__(self, patch_size=4, C=96):
+        super().__init__()
+        self.linear_embedding = nn.Conv2d(3, C, kernel_size=patch_size, stride=patch_size)
+        self.layer_norm = nn.LayerNorm(C)
+        self.relu = nn.ReLU()
+
+    def forward(self,x):
+        x = self.linear_embedding(x)
+        x = rearrange(x, 'b c h w -&gt; b (h w) c')
+        x = self.relu(self.layer_norm(x))
+        return x
+</code></pre></div></div>
+
+<ul>
+  <li><strong>image_resolution</strong> = <code class="language-plaintext highlighter-rouge">224 x 224</code></li>
+  <li><strong>patch_size</strong> = <code class="language-plaintext highlighter-rouge">4 x 4</code> in terms of pixels per height/width</li>
+  <li><strong>number of pixels(features) in one patch</strong> = <code class="language-plaintext highlighter-rouge">4 x 4 x 3</code> = <code class="language-plaintext highlighter-rouge">48</code></li>
+  <li><strong>total number of patches</strong> in the whole image = <code class="language-plaintext highlighter-rouge">224/4 x 224/4</code> = <code class="language-plaintext highlighter-rouge">3136</code></li>
+  <li><strong>window_size</strong> = <code class="language-plaintext highlighter-rouge">7 x 7</code> in terms of patches per height/width</li>
+  <li><strong>number of patches</strong> in one window = <code class="language-plaintext highlighter-rouge">7 x 7</code> = <code class="language-plaintext highlighter-rouge">49</code></li>
+  <li><strong>total number of windows</strong> in the whole image = <code class="language-plaintext highlighter-rouge">224/4/7 x 224/4/7</code> = <code class="language-plaintext highlighter-rouge">8 x 8</code> = <code class="language-plaintext highlighter-rouge">64</code></li>
+</ul>
+
+<h2 id="linear-embedding-layer">Linear Embedding Layer</h2>
+
+<p>A <strong>linear embedding layer</strong> is applied on this feature concatenation to project it to an arbitrary dimension (denoted as <strong>C</strong>). In the official implementation, <strong>patch partition</strong> and <strong>embedding</strong> are simultaneously done with <code class="language-plaintext highlighter-rouge">nn.Conv2d</code> with <code class="language-plaintext highlighter-rouge">kernel_size=patch_size</code>, <code class="language-plaintext highlighter-rouge">stride=patch_size</code>. Although the architecture in the paper first performs patch partition and the linear embedding, the official implementation <strong>first performs embedding</strong>(both partition &amp; embedding) and uses <strong>window partition</strong> module after.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PatchEmbed</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="s">""" Convert image to patch embedding
+
+    Args:
+        img_size (int): Image size (Default: 224)
+        patch_size (int): Patch token size (Default: 4)
+        in_channels (int): Number of input image channels (Default: 3)
+        embed_dim (int): Number of linear projection output channels (Default: 96)
+        norm_layer (nn.Module, optional): Normalization layer (Default: None)
+    """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">patch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">in_chans</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">embed_dim</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">norm_layer</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="n">img_size</span> <span class="o">=</span> <span class="n">to_2tuple</span><span class="p">(</span><span class="n">img_size</span><span class="p">)</span> <span class="c1"># (img_size, img_size) to_2tuple simply convert t to (t,t)
+</span>        <span class="n">patch_size</span> <span class="o">=</span> <span class="n">to_2tuple</span><span class="p">(</span><span class="n">patch_size</span><span class="p">)</span> <span class="c1"># (patch_size, patch_size)
+</span>        <span class="n">patches_resolution</span> <span class="o">=</span> <span class="p">[</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="n">patch_size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="n">patch_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="c1"># (num_patches, num_patches)
+</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">img_size</span> <span class="o">=</span> <span class="n">img_size</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">patch_size</span> <span class="o">=</span> <span class="n">patch_size</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">patches_resolution</span> <span class="o">=</span> <span class="n">patches_resolution</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">num_patches</span> <span class="o">=</span> <span class="n">patches_resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">patches_resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">in_chans</span> <span class="o">=</span> <span class="n">in_chans</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">embed_dim</span> <span class="o">=</span> <span class="n">embed_dim</span>
+
+        <span class="c1"># proj layer: (B, 3, 224, 224) -&gt; (B, 96, 56, 56)
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">proj</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_chans</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">patch_size</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">norm_layer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">norm_layer</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">norm</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="s">"""
+        x: (B, C, H, W) Default: (B, 3, 224, 224)
+        returns: (B, H//patch_size * W//patch_size, embed_dim) (B, 56*56, 96)
+        """</span>
+        <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span>
+        <span class="k">assert</span> <span class="n">H</span> <span class="o">==</span> <span class="bp">self</span><span class="p">.</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">W</span> <span class="o">==</span> <span class="bp">self</span><span class="p">.</span><span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> \
+            <span class="sa">f</span><span class="s">"Input image size (</span><span class="si">{</span><span class="n">H</span><span class="si">}</span><span class="s">*</span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s">]) doesn't match model (</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">img_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">*</span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">img_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s">)."</span>
+
+        <span class="c1"># (B, 3, 224, 224) -&gt; (B, 96, 56, 56)
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">proj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="c1"># (B, 96, 56, 56) -&gt; (B, 96, 56*56)
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># (B, 96, 56*56) -&gt; (B, 56*56, 96): 56 refers to the number of patches
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">norm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<h2 id="patch-merging">Patch Merging</h2>
+
+<p>该模块的作用是在每个Stage开始前做降采样，用于缩小分辨率，调整通道数 进而形成层次化的设计，同时也能节省一定运算量。</p>
+
+<blockquote>
+  <p>在CNN中，则是在每个Stage开始前用<code class="language-plaintext highlighter-rouge">stride=2</code>的卷积/池化层来降低分辨率。</p>
+</blockquote>
+
+<p>每次降采样是两倍，因此<strong>在行方向和列方向上，间隔2选取元素</strong>。</p>
+
+<p>然后拼接在一起作为一整个张量，最后展开。<font color="red">**此时通道维度会变成原先的4倍**（因为H,W各缩小2倍），此时再通过一个**全连接层再调整通道维度为原来的两倍**</font> ==此处维度缩减==</p>
+
+<p><em>To produce a hierarchical representation, the number of tokens is reduced by patch merging layers as the network gets deeper. The first patch merging layer concatenates the features of each group of 2 × 2 neighboring patches, and applies a linear layer on the 4C-dimensional concatenated features. <strong>This reduces the number of tokens by a multiple of 2×2 = 4 (2× downsampling of resolution), and the output dimension is set to 2C.</strong></em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#The patch merging layer is straightforward. We initialize a linear layer with 4C input channels to 2C output channels and initialize a layer norm with the output embedding size. In our forward function we use einops rearrange to reshape our tokens from 2x2xC to 1x1x4C. We finish by passing our inputs through the linear projection and layer norm.
+</span>
+<span class="k">class</span> <span class="nc">PatchMerging</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+
+    <span class="s">'''
+    input shape -&gt; (b, (h*w), C)
+    output shape -&gt; (b, (h/2 * w/2), C*2)
+    '''</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">layer_norm</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rearrange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">'b (h s1 w s2) c -&gt; b (h w) (s2 s1 c)'</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s2</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">width</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">layer_norm</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">linear</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><img src="./Vision%20Transformer.assets/v2-a1a0ea5d9455083caed65006433c4efe_720w.webp" alt="img" /></p>
+
+<h2 id="shifted-window-based-self-attention">Shifted Window based Self-Attention**</h2>
+
+<p>标准的Transformer结构或其变体都采用的是Global Self Attention，其会计算一个token和其他所有token的关系，其计算复杂度太高，不适合与密集预测等需要大量token的任务</p>
+
+<p>为了降低计算复杂度，SwinTransformer在局部Windows内部计算Self-Attention。每个image 都会被平均划分为若干个windows，并且这些Windows之间是没有重蛋的。假设image的大小为 $h * w$ ，<strong>每个Window包含 $M * M$ 个patches</strong>，则标准MSA和基于window的局部SelfAttention 的计算量分别为:
+\(\begin{aligned}
+&amp; \Omega(\mathrm{MSA})=4 h w C^2+2(h w)^2 C \\
+&amp; \Omega(\mathrm{W}-\mathrm{MSA})=4 h w C^2+2 M^2 h w C
+\end{aligned}\)</p>
+
+<p>两个公式的推导可参见下图:</p>
+
+<p>对于MSA来说:
+tokens: hxwxC heads: $d$
+(1) 首光计算每个head的计算量
+(a) 计算 $q, k . v$ :</p>
+
+<p>$\Rightarrow$ 对于 $q$ ，input: $h w \times \frac{c}{d} $, output: $h w \times \frac{c}{d}$需要计算量 $h w \times \frac{c}{d} \times c$</p>
+
+<p><img src="./Vision%20Transformer.assets/image-20240111134545199.png" alt="image-20240111134545199" /></p>
+
+<p>参考右侧矩阵乘法: 输出短阵大小为$hw \times \frac{c}{d}$, 其中的每个元素需要进行C次运算,  对于 $q$ ，需要计算量 $h w \times \frac{c}{d} \times c$</p>
+
+<p>同理，得到 $k,v: h \omega \times \frac{c^2}{d}$</p>
+
+<p>(b) $Q K^{\top}$
+(c) $Q K^{\top} V($ 忽略 Softmax)
+QK $K^{\top}$
+(d) 一个head 整体计算量:
+$3 h w \times \frac{c^2}{d}+2(h w)^2 (c/d) $</p>
+
+<p>总体计算量： 
+$$
+quad d\left[3 h w \times \frac{c^2}{d}+2(h w)^2 \frac{c}{d}\right]+h w \times c^2</p>
+
+<p>=4 h \omega \times c^2+2(h \omega)^2 c
+\((2) 融合多个 head:\)
+\left.h w\left[{ }^c\right]{ }^c[] \rightarrow i^c\right] \quad h w \times c \times c
+\(对于W-MSA来说
+tokens: hxwxC ,  heads: $d$ ,  window size: $M \times M$
+每个window 内部计算 Self-A tetention, 其计算量可根据MSA 来推
+$4 m^2 x C^2+2 M^4 C$
+一共有 $\frac{h}{M} \times \frac{W}{M}$ 个window:
+总体计算量为:\)
+\left(\frac{h}{m} \times \frac{w}{m}\right) \times\left(4 m^2 C^2+2 M^4 c\right)
+=4 h \omega c^2+2 M^2 h \omega c
+$$
+由于Window的大小是固定的（论文中设定为7），W-MSA的计算量将远远小于MSA</p>
+
+<h3 id="window-attention-mechanism">Window Attention Mechanism</h3>
+
+<p>这是这篇文章的关键。传统的Transformer都是<strong>基于全局来计算注意力的</strong>，因此计算复杂度十分高。而Swin Transformer则将<strong>注意力的计算限制在每个窗口内</strong>，进而减少了计算量。</p>
+
+<p>主要区别是在原始计算Attention的公式中的Q,K时<strong>加入了相对位置编码</strong>。后续实验有证明相对位置编码的加入提升了模型性能。</p>
+
+<p>首先QK计算出来的Attention张量形状为<code class="language-plaintext highlighter-rouge">(numWindows*B, num_heads, window_size*window_size, window_size*window_size)</code>。</p>
+
+<p><strong>window partition 函数是用于对张量划分窗口，指定窗口大小。将原本的张量从 N H W C, 划分成 num_windows*B, window_size, window_size (ZTD: how many patches in one window, ==patch should be already be calculated by in previouse ‘patch embedding’== ), C ，其中 num_windows = H*W / (window_size*window_size)，即窗口的个数。而window reverse函数则是对应的逆过程。这两个函数会在后面的Window Attention用到。</strong></p>
+
+<p><img src="./Vision%20Transformer.assets/1Kgi0npIhx7pdSBddP5m28A.png" alt="img" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">window_partition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
+    <span class="s">"""
+    Args:
+        x: (B, H, W, C)
+        window_size (int): window size (Default: 7)
+
+    Returns:
+        windows: (num_windows * B, window_size, window_size, C)
+                 (8*8*B, 7, 7, C)
+    """</span>
+
+    <span class="n">B</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span>
+
+    <span class="c1"># Convert to (B, 8, 7, 8, 7, C) 
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">H</span> <span class="o">//</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">W</span> <span class="o">//</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+
+    <span class="c1"># Convert to (B, 8, 8, 7, 7, C)
+</span>    <span class="n">windows</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span><span class="n">contiguous</span><span class="p">()</span>
+
+    <span class="c1"># Efficient Batch Computation - Convert to (B*8*8, 7, 7, C)
+</span>    <span class="n">windows</span> <span class="o">=</span> <span class="n">windows</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">windows</span>
+
+
+<span class="k">def</span> <span class="nf">window_reverse</span><span class="p">(</span><span class="n">windows</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">windows</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">H</span> <span class="o">*</span> <span class="n">W</span> <span class="o">/</span> <span class="n">window_size</span> <span class="o">/</span> <span class="n">window_size</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">windows</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">H</span> <span class="o">//</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">W</span> <span class="o">//</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span><span class="n">contiguous</span><span class="p">().</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<p>Window Attention Example</p>
+
+<p>In the Swin Transformer, attention is computed with the familiar attention formula shown in the image above <strong>but in parallel across non-overlapping windows</strong>. We will start by first coding the standard window based self attention mechanism and we will deal with the alternating shifted windows later.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">'''
+We start by initializing our parameters embed_dim, num_heads, and and window_size and defining two linear projections. 
+  - The first is our projection from inputs to Queries, Keys, and Values which we do in one parallel projection so the output size is set to 3*C. 
+  - The second projection is a linear projection applied after the attention computation. This projection is for communication between the concatenated parallel multi-headed attention units.
+
+'''</span>
+
+<span class="k">class</span> <span class="nc">ShiftedWindowMSA</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+
+<span class="s">'''
+ input shape -&gt; (b,(h*w), C)
+ output shape -&gt; (b, (h*w), C)
+'''</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">embed_dim</span> <span class="o">=</span> <span class="n">embed_dim</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">num_heads</span> <span class="o">=</span> <span class="n">num_heads</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span> <span class="o">=</span> <span class="n">window_size</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">proj1</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">embed_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">proj2</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">h_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">embed_dim</span> <span class="o">/</span> <span class="bp">self</span><span class="p">.</span><span class="n">num_heads</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">proj1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rearrange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="err">‘</span><span class="n">b</span> <span class="p">(</span><span class="n">h</span> <span class="n">w</span><span class="p">)</span> <span class="p">(</span><span class="n">c</span> <span class="n">K</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="n">h</span> <span class="n">w</span> <span class="n">c</span> <span class="n">K</span><span class="err">’</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">width</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rearrange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="err">‘</span><span class="n">b</span> <span class="p">(</span><span class="n">h</span> <span class="n">m1</span><span class="p">)</span> <span class="p">(</span><span class="n">w</span> <span class="n">m2</span><span class="p">)</span> <span class="p">(</span><span class="n">H</span> <span class="n">E</span><span class="p">)</span> <span class="n">K</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="n">H</span> <span class="n">h</span> <span class="n">w</span> <span class="p">(</span><span class="n">m1</span> <span class="n">m2</span><span class="p">)</span> <span class="n">E</span> <span class="n">K</span><span class="err">’</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">num_heads</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">,</span> <span class="n">m2</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">)</span>
+        
+      <span class="s">'''
+        H = # of Attention Heads
+        h,w = # of windows vertically and horizontally
+        (m1 m2) = total size of each window
+        E = head dimension
+        K = 3 = a constant to break our matrix into 3 Q,K,V matricies 
+      '''</span>
+
+        <span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">K</span><span class="p">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">V</span><span class="p">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">att_scores</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q</span> <span class="o">@</span> <span class="n">K</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">h_dim</span><span class="p">)</span>
+        <span class="n">att</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">att_scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">@</span> <span class="n">V</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rearrange</span><span class="p">(</span><span class="n">att</span><span class="p">,</span> <span class="err">‘</span><span class="n">b</span> <span class="n">H</span> <span class="n">h</span> <span class="n">w</span> <span class="p">(</span><span class="n">m1</span> <span class="n">m2</span><span class="p">)</span> <span class="n">E</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="p">(</span><span class="n">h</span> <span class="n">m1</span><span class="p">)</span> <span class="p">(</span><span class="n">w</span> <span class="n">m2</span><span class="p">)</span> <span class="p">(</span><span class="n">H</span> <span class="n">E</span><span class="p">)</span><span class="err">’</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">,</span> <span class="n">m2</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rearrange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="err">‘</span><span class="n">b</span> <span class="n">h</span> <span class="n">w</span> <span class="n">c</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="p">(</span><span class="n">h</span> <span class="n">w</span><span class="p">)</span> <span class="n">c</span><span class="err">’</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">proj2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="shifted-window-attention"><strong>Shifted Window Attention</strong></h3>
+
+<p>前面的Window Attention是在每个窗口下计算注意力的，为了更好的和其他window进行信息交互，Swin Transformer还引入了shifted window操作。</p>
+
+<p><img src="./Vision%20Transformer.assets/image-20240112151212065.png" alt="image-20240112151212065" /></p>
+
+<p>Shifted Window方法是在<strong>连续的两个Transformer Block之间实现的</strong>。</p>
+<ul>
+  <li>第一个模块使用一个标准的window partition策略，<strong>从feature map的左上角出发</strong>，例如一个 $8 * 8$ 的feature map会被平分为 $2 * 2$ 个window，每个window的大小为 $M=4$ 。</li>
+  <li>紧接着的第二个模块则使用了移动窗口的策略，window会从feature map的 $\left(\left\lfloor\frac{M}{2}\right\rfloor,\left\lfloor\frac{M}{2}\right\rfloor\right)$ 位置处开始，然后再进行window partition操作。</li>
+</ul>
+
+<p>这样一来，不同window之间在两个连续的模块之间便有机会进行交互。基于移动窗口策略，两个连续的SwinTransformer Block的计算过程如下:
+\(\begin{aligned}
+&amp; \hat{\mathbf{z}}^l=\mathrm{W}-\operatorname{MSA}\left(\operatorname{LN}\left(\mathbf{z}^{l-1}\right)\right)+\mathbf{z}^{l-1} \\
+&amp; \mathbf{z}^l=\operatorname{MLP}\left(\operatorname{LN}\left(\hat{\mathbf{z}}^l\right)\right)+\hat{\mathbf{z}}^l, \\
+&amp; \hat{\mathbf{z}}^{l+1}=\operatorname{SW}-\operatorname{MSA}\left(\operatorname{LN}\left(\mathbf{z}^l\right)\right)+\mathbf{z}^l \\
+&amp; \mathbf{z}^{l+1}=\operatorname{MLP}\left(\operatorname{LN}\left(\hat{\mathbf{z}}^{l+1}\right)\right)+\hat{\mathbf{z}}^{l+1}
+\end{aligned}\)
+Shifted Window Partition存在一个问题，由于没有与边界对齐，其会产生更多的Windows，从 $\left\lceil\frac{h}{M}\right\rceil \times\left\lceil\frac{w}{M}\right\rceil$ 个Windows上升至 $\left\lceil\frac{h}{M}+1\right\rceil \times\left\lceil\frac{w}{M}+1\right\rceil$ ，并且其中很多windows的大小也不足 $M * M$ ，具体可以参见原论文中的Figure 2。</p>
+
+<p><strong>Naive Solution</strong></p>
+
+<p>比较Naive的一种解决方法如下图所示：</p>
+
+<p><img src="./Vision%20Transformer.assets/v2-c7d037d20ef14a5c0098572e38cc2bd2_720w.webp" alt="img" /></p>
+
+<p>可以看出这种解决方法的缺点在于额外计算了很多padding的部分，浪费了大量计算。</p>
+
+<p><strong>Batch Computation Approach</strong></p>
+
+<p>为此，SwinTransformer采用了一个更为高效的 Batch Computation Approach。</p>
+
+<p><img src="./Vision%20Transformer.assets/1InwcdUt4II6dSl5srk0dew.png" alt="img" /></p>
+
+<p>这一部分在论文中并没有详细说明，仅仅通过上图进行了展示，其实整体思想就是：通过设定特殊的mask，<strong>在Attention时，仅对一个window内的有效部分进行Attention，其余部分被mask掉</strong>，即可实现在原来计算Attention方法不变的情况下，对非规则的Window计算Attention。</p>
+
+<p>在实际代码里，我们是<strong>通过对特征图移位，并给Attention设置mask来间接实现的</strong>。能在<strong>保持原有的window个数下</strong>，最后的计算结果等价。</p>
+
+<blockquote>
+  <p><strong>特征图移位操作</strong></p>
+
+  <p>The idea of shifted window attention is that on alternating attention computation layers we shift our windows so that our shifted windows overlap over the previous layers windows to allow cross window communication for the model. We can achieve this efficiently by a cyclic shift as depicted in the image above. PyTorch has a function torch.roll we can use that will perform our cyclic shift of size window_size/2 on our input.</p>
+
+  <p>代码里对特征图移位是通过<code class="language-plaintext highlighter-rouge">torch.roll</code>来实现的，下面是示意图</p>
+
+  <p><img src="./Vision%20Transformer.assets/v2-8d8274d62026e0732c8a7827de1070fc_720w.webp" alt="img" /></p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># calculate attention mask for SW-MSA
+</span><span class="n">Hp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">H</span> <span class="o">/</span> <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span>
+<span class="n">Wp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">W</span> <span class="o">/</span> <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span>
+<span class="n">img_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">Hp</span><span class="p">,</span> <span class="n">Wp</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="p">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># 1 Hp Wp 1
+</span><span class="n">h_slices</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">),</span>  <span class="c1">#1
+</span>            <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">shift_size</span><span class="p">),</span>
+            <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">shift_size</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+<span class="n">w_slices</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">),</span>
+            <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">shift_size</span><span class="p">),</span>
+            <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">shift_size</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 2
+</span><span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">h_slices</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">w_slices</span><span class="p">:</span>
+        <span class="n">img_mask</span><span class="p">[:,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cnt</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">mask_windows</span> <span class="o">=</span> <span class="n">window_partition</span><span class="p">(</span><span class="n">img_mask</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">)</span>  <span class="c1"># (nW, window_size, window_size, 1) #3
+</span><span class="n">mask_windows</span> <span class="o">=</span> <span class="n">mask_windows</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">window_size</span><span class="p">)</span>
+<span class="n">attn_mask</span> <span class="o">=</span> <span class="n">mask_windows</span><span class="p">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">mask_windows</span><span class="p">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 4
+</span><span class="n">attn_mask</span> <span class="o">=</span> <span class="n">attn_mask</span><span class="p">.</span><span class="n">masked_fill</span><span class="p">(</span><span class="n">attn_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">)).</span><span class="n">masked_fill</span><span class="p">(</span><span class="n">attn_mask</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Slice the indices into <code class="language-plaintext highlighter-rouge">[0: -window_size]</code>, <code class="language-plaintext highlighter-rouge">[-window_size: -shift_size]</code>, and <code class="language-plaintext highlighter-rouge">[-shift_size:]</code> for both horizontally and vertically. Then we get these 9 partitions as shown in the Figure 11.</li>
+  <li>Assign numbers <code class="language-plaintext highlighter-rouge">0 ~ 8</code> to <strong>each patch</strong> of the divided regions (numbers are drawn region-wise for simplicity).</li>
+  <li>Perform <strong>window partitioning</strong> with equal size of window (<code class="language-plaintext highlighter-rouge">M x M</code>). After the partition, we have a total of 4 windows. The first window has region <code class="language-plaintext highlighter-rouge">0</code>, the second has <code class="language-plaintext highlighter-rouge">1, 2</code>, the third has <code class="language-plaintext highlighter-rouge">3, 6</code>, and the fourth has <code class="language-plaintext highlighter-rouge">4, 5, 7, 8</code>.</li>
+  <li>For each of the window, <strong>perform self-attention individually for each region number by applying attention masks</strong>. ==The implementation of this separate self-attention is the beauty I think. Remember that we apply this separate self-attention when we’re dealing with self-attention, meaning $q k^{\top}$ which has $M^2 \times M^2$ shape. (More details below).==</li>
+  <li>For attention mask, set to <code class="language-plaintext highlighter-rouge">0</code> for regions we want to apply self-attention, other wise a small number like <code class="language-plaintext highlighter-rouge">-100</code> for regions we don’t want to apply self-attention.</li>
+  <li>Later when we get $q k^{\top}$ add this attention-mask.</li>
+  <li>Perform reverse cyclic shift.</li>
+</ol>
+
+<blockquote>
+  <p>squeeze and unsqueeze 主要用于对数据的维度进行压缩或者解压</p>
+
+  <p>再看torch.unsqueeze()这个函数主要是对数据维度进行扩充。给指定位置加上维数为一的维度，比如原本有个三行的数据（3)，在0的位置加了一维就变成一行三列 $(1,3)$ 。a.squeeze $(N)$ 就是在a中指定位置 $N$ 加上一个维数为 1 的维度。还有一种形式就是 $b=$ torch.unsqueeze $(a ， N)$ a 就是在a中指定位置 $N$ 加上一个维数为 1 的维度</p>
+</blockquote>
+
+<h4 id="attention-masks-1">Attention masks 1</h4>
+
+<p><strong>cyclic shift is great!</strong> However one issue will come from using the cyclic shift to perform shifted window attention. <strong>Because we are now computing attention on the new shifted image, the model will be confused on where sections A,B,C</strong> in the above example actually belong in the image.</p>
+
+<ul>
+  <li>
+    <p>Remember that the core concept of Swin Transformer is that <strong>self-attention is performed only within each window locally</strong>.</p>
+
+    <p>However, As you can see in the Fig. 9, one window(newly created window) contains parts of different windows(from the perspective of before cyclic shift).</p>
+
+    <p><img src="./Vision%20Transformer.assets/swint9.png" alt="space-1.jpg" /></p>
+
+    <p>This is not good.. we need to make sure that self-attention is performed only within each window from the perspective of <strong>original 9 windows</strong> before the cyclic shift. How can we do that? That’s why we need <strong>attention mask</strong> as shown in Fig. 4.</p>
+  </li>
+</ul>
+
+<p><img src="./Vision%20Transformer.assets/swint10.png" alt="space-1.jpg" /></p>
+
+<p>dive deep into the codes.</p>
+
+<p><img src="./Vision%20Transformer.assets/swint11.png" alt="space-1.jpg" /></p>
+
+<p>Let’s take an example of <strong>bottom-left</strong> window from Figure As stated earlier, we want to apply self-attention individually for each region(separately for <code class="language-plaintext highlighter-rouge">3</code> and <code class="language-plaintext highlighter-rouge">6</code>) in this window as shown</p>
+
+<p><img src="./Vision%20Transformer.assets/swint12.png" alt="space-1.jpg" /></p>
+
+<p>==The official implementation uses a nice yet super simple trick to achieve this. Follow each step along with the figure.==</p>
+
+<ol>
+  <li>
+    <p>First, create two duplicates of the same window with shape <code class="language-plaintext highlighter-rouge">M x M</code> for each window (<code class="language-plaintext highlighter-rouge">nW</code> means total number of windows)</p>
+  </li>
+  <li>
+    <p>Flatten <code class="language-plaintext highlighter-rouge">M x M</code> to <code class="language-plaintext highlighter-rouge">M^2</code> for each window.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">unsqueeze</code> one dimension vertically for one duplicate and horizontally for the other one.</p>
+  </li>
+  <li>
+    <p>Subtract the duplicates to obtain the <code class="language-plaintext highlighter-rouge">M^2 x M^2</code> shape attention-mask matrix.</p>
+  </li>
+  <li>
+    <p>Make all the <strong>non-zero</strong> patches to <code class="language-plaintext highlighter-rouge">-100</code>.</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td><img src="./Vision%20Transformer.assets/swint13-1705151546044-5.png" alt="space-1.jpg" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<h4 id="attention-masks-2">Attention masks 2</h4>
+
+<p>以上几行即为Mask的计算代码，其中 $H ， W$ 即为输入feature map的高和宽。window_size即为 window的大小，也就是论文中的 $M$ ， shift_size为窗口移动的大小，shift_size $=\left\lfloor\frac{\bar{M}}{2}\right\rfloor$ ， self 是对象，可以忽略。详细说明见下图:</p>
+
+<p><img src="./Vision%20Transformer.assets/v2-dc2fe96c5c67510aeabbcff3489c9757_720w.webp" alt="img" /></p>
+
+<p><img src="./Vision%20Transformer.assets/v2-61469886ee2ef8995996a5a0acd69ab8_720w.webp" alt="img" /></p>
+
+<p><img src="./Vision%20Transformer.assets/v2-9cb8b56e82d02370c8b243a54a5efc00_720w.webp" alt="img" /></p>
+
+<p>其他的window对应的Attention Mask可以采用上述类似的逻辑推导出其具体值。 下图依次为window (1)，window (2)，window (3)，window (4)对应的attn mask的示意图：</p>
+
+<p><img src="./Vision%20Transformer.assets/v2-47d473a4f6ac4d81deadbf5689e3579f_720w.webp" alt="img" /></p>
+
+<p><img src="./Vision%20Transformer.assets/v2-a55556d6193de2c4c352fef51b6302c1_720w.webp" alt="img" /></p>
+
+<p><img src="./Vision%20Transformer.assets/v2-1eb1afb0db41afa9414b9ad8da2cc00f_720w.webp" alt="img" /></p>
+
+<p><img src="./Vision%20Transformer.assets/v2-120e87528b7b80db050dd26c861c48ba_720w.webp" alt="img" /></p>
+
+<p><img src="./Vision%20Transformer.assets/v2-d4bd615abc8547385415512c4d4e0470_720w.webp" alt="img" /></p>
+
+<p><img src="./Vision%20Transformer.assets/v2-b483bbdff8181f3bef9c5445d86b2d36_720w.webp" alt="img" /></p>
+
+<h4 id="attention-mask-3">Attention mask 3</h4>
+
+<p>我认为这是Swin Transformer的精华，通过设置合理的mask，让<code class="language-plaintext highlighter-rouge">Shifted Window Attention</code>在与<code class="language-plaintext highlighter-rouge">Window Attention</code>相同的窗口个数下，达到等价的计算结果。首先我们对Shift Window后的每个窗口都给上index，并且做一个<code class="language-plaintext highlighter-rouge">roll</code>操作（window_size=2, shift_size=-1）</p>
+
+<p><img src="./Vision%20Transformer.assets/v2-52b0bec2b0e2341e1eab1fd6342bc9e6_720w.webp" alt="img" /></p>
+
+<p>我们希望在计算Attention的时候，<strong>让具有相同index QK进行计算，而忽略不同index QK计算结果</strong>。</p>
+
+<p>最后正确的结果如下图所示 (PS: 这个图的Query Key画反了。。。应该是4x1 和 1x4 做矩阵乘，读者们自行交换下位置，抱歉）</p>
+
+<p><img src="./Vision%20Transformer.assets/v2-af19485ae400a2f52ede6306fcfb078e_720w.webp" alt="img" /></p>
+
+<p>而要想在原始四个窗口下得到正确的结果，我们就必须给Attention的结果加入一个mask（如上图最右边所示）</p>
+
+<h3 id="relative-position-bias">Relative Position Bias</h3>
+
+<p>Another key component of Swin Transformer is relative position bias $B$. Unlike absolute position embedding, relative position bias literally tells us relative position information of the patches in a window. The relative position bias matrix $B$ is added after $\frac{Q K^{\top}}{\sqrt{d}}$ as shown below.
+\(\operatorname{Attention}(Q, K, V)=\operatorname{Softmax}\left(\frac{Q K^{\top}}{\sqrt{d}}+B\right) V\)
+where $Q, K, V \in \mathbb{R}^{M^2 \times \boldsymbol{d}}$ are the query, key, and value matrixes and $d$ is the query/key dimension and $M^2$ is the number of patches in a window.</p>
+
+<p>Since a window size is $M \times M$, the relative position along each axis lies in the range $[-M+1, M-1]$ as shown in the following Fig</p>
+
+<p><img src="./Vision%20Transformer.assets/swint14.png" alt="space-1.jpg" /></p>
+
+<h1 id="scalable-diffusion-models-with-transformers-tbd">Scalable Diffusion Models with Transformers (TBD)</h1>
+
+<p><a href="https://blog.csdn.net/huzimu_/article/details/136509658">论文阅读：Scalable Diffusion Models with Transformers_adaptive layernorm-CSDN博客</a></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/597695487">Scalable Diffusion Models with Transformers（DiTs）论文阅读 – 文生视频Sora模型基础结构DiT - 知乎 (zhihu.com)</a></p>
+
+<p><a href="https://arxiv.org/pdf/2212.09748.pdf">2212.09748.pdf (arxiv.org)</a></p>
+
+<p><a href="https://github.com/facebookresearch/DiT">facebookresearch/DiT: Official PyTorch Implementation of “Scalable Diffusion Models with Transformers” (github.com)</a></p>
+
+<p><a href="https://colab.research.google.com/github/facebookresearch/DiT/blob/main/run_DiT.ipynb#scrollTo=5JTNyzNZKb9E">run_DiT.ipynb - Colab (google.com)</a></p>
+
+<p><a href="https://github.com/chuanyangjin/fast-DiT?tab=readme-ov-file">chuanyangjin/fast-DiT: Fast Diffusion Models with Transformers (github.com)</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>[Scaleble Diffusion Models with Transformers</td>
+      <td>by Liuzhihui</td>
+      <td>Feb, 2024</td>
+      <td>Medium](https://medium.com/@liuzhihui2046/scaleble-diffusion-models-with-transformers-527fbfa8eab7)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>文章提出使用Transformers替换扩散模型中U-Net主干网络，分析发现，这种Diffusion Transformers（DiTs）不仅速度更快（更高的Gflops），而且在ImageNet 512×512和256×256的类别条件图片生成任务上，取得了更好的效果，256×256上实现了SOTA的FID指标（2.27）。</p>
+
+<p>Transformers已经广泛应用于包括NLP、CV在内的机器学习的各个领域。然而，很多图片level的生成模型还坚持使用卷积神经网络，比如扩散模型采用的就是U-Net的主干网络架构。经过演化，扩散模型中的U-Net网络增加了稀疏的自注意力模块，此外 Dhariwal and Nichol 也尝试过在U-Net模型上的一些改变，比如通过增加适配的正则化层来注入条件信息和Channel数量。尽管如此，U-Net的顶层设计还是与原始U-Net相差无几。</p>
+
+<p>文章的目标就是要揭开扩散模型架构选择的神秘面纱，提供一个强有力的baseline。文章发现U-Net并非不可替代，并且很容易使用诸如Transformers的结构替代U-Net，使用Transformers可以很好地保持原有的优秀特性，比如可伸缩性、鲁棒性、高效性等，并且使用新的标准化架构可能在跨领域研究上展现出更多的可能。文章从网络复杂度和采样质量两个方面对DiTs方法进行评估。</p>
+
+<h3 id="ddpms">DDPMs</h3>
+
+<ul>
+  <li>
+    <p>扩散模型是借鉴了物理学上的扩散过程，在生成模型上，分为正向和逆向的过程。正向过程是向信号中逐渐每步加少量噪声，当步数足够大时可以认为信号符合一个高斯分布。所以逆向过程就是从随机噪声出发逐渐的去噪，最终还原成原有的信号。</p>
+  </li>
+  <li>
+    <p>去噪过程一般采用UNet或者ViT，使用t步的结果和条件输入预测t-1步增加的噪声，然后使用DDPM可以得到t-1步的分布，经过多步迭代就可以从随机噪声还原到有实际意义的信号。如果使用原始DDPM速度会慢很多，所以很多工作如DDIM、FastDPM等工作实现了解码加速。</p>
+  </li>
+</ul>
+
+<h3 id="扩散模型基础">扩散模型基础</h3>
+
+<ul>
+  <li>前向过程是一个T步逐渐加噪的马尔科夫链，公式如下</li>
+</ul>
+
+<p>\(\begin{gathered}
+q\left(x_T \mid x_0\right)=\prod_{t=1}^T q\left(x_t \mid x_{t-1}\right)=\prod_{t=1}^T \mathcal{N}\left(\sqrt{1-\beta_t} x_{t-1} ; \beta_t \mathbf{I}\right) \\
+=\mathcal{N}\left(\sqrt{\bar{\alpha}_t} x_0 ;\left(1-\bar{\alpha}_t \mathbf{I}\right)\right) ; \\
+\bar{\alpha}_t=\prod_{t=1}^T \alpha_t ; \quad \alpha_t=1-\beta_t
+\end{gathered}\)
+给定前向扩散过程作为先验，扩散模型训练反转的过程，可以通过去除所加噪声从XT恢复成X0，并且每步的扩散过程都采样自特定的高斯分布，其期望和方差如下:
+\(p_\theta\left(x_{t-1} \mid x_t\right)=\mathcal{N}\left(\mu_\theta\left(x_t, t\right), \Sigma_\theta\left(x_t, t\right)\right)\)</p>
+
+<p>优化目标是负的X0概率似然，其上界如下所示:
+\(L=\mathbb{E}\left[-\log p_\theta\left(x_0\right)\right] \leq \mathbb{E}\left[-\log \frac{p_\theta\left(x_{0: T}\right)}{q\left(x_{1: T} \mid x_0\right)}\right]\)</p>
+
+<p>并且其目标可以简化为预测和ground truth之间的12 loss。
+\(\mathcal{L}=\mathbb{E}_{x, \epsilon \sim \mathcal{N}(0, I), t}\left[\left\|\epsilon-\epsilon_\theta\left(x_t, t\right)\right\|_2^2\right] .\)</p>
+
+<ul>
+  <li>
+    <p>Classifier-free guidance
+  条件扩散模型是将条件信息作为额外的输入，比如一个分类标签c。这种情况下反向过程变为了
+  \(p_\theta\left(x_{t-1} \mid x_t, c\right) \text {. }\)</p>
+
+    <p>根据贝叶斯规则
+  \(\log p(c \mid x) \propto \log p(x \mid c)-\log p(x)\)</p>
+
+    <p>因此
+  \(\nabla_x \log p(c \mid x) \propto \nabla_x \log p(x \mid c)-\nabla_x \log p(x)\)</p>
+
+    <p>所以在想要条件的概率较大，就可以将条件的梯度增加到优化目标里，最终可以表示成如下形式:
+  \(\epsilon_\theta\left(x_t, \emptyset\right)+s \cdot\left(\epsilon_\theta\left(x_t, c\right)-\epsilon_\theta\left(x_t, \emptyset\right)\right) .\)</p>
+
+    <p>模型在训练时，使用一个网络架构优化两个模型 (uncond，cond)。</p>
+  </li>
+  <li>
+    <p>Latent diffusion models：扩散模型在像素空间上训练和推理的计算开销过大，Latent Diffusion Model (LDM) 将像素空间替换为VAE编码得到的潜在空间 $z=E(x)$​ ，可以提高计算效率。本文提出的DiT沿用了LDM中的潛在空间，但是在预测潜在空间特征的模型上，将LDM中的U-Net替换为了纯Transformer骨架。</p>
+  </li>
+</ul>
+
+<p><img src="./Vision%20Transformer.assets/v2-00d94bdf03ccd7a8ef3b61f0726254b7_720w.webp" alt="img" /></p>
+
+<p>In a typical diffusion model, a U-Net convolutional neural network (CNN) learns to estimate the noise to be removed from an image. ==DiTs replace this U-Net with a transformer==. This replacement shows that U-Net’s inductive bias is not necessary for the performance of diffusion models.</p>
+
+<p><img src="./Vision%20Transformer.assets/ZfgaqMmUzjad_UTL_image1.jpeg" alt="Architecture of diffusion transformer" /></p>
+
+<p><strong>Patch化</strong>：DiT的输入是通过VAE后的一个稀疏的表示z（256×256×3的图片，z为32×32×4），类似其他ViTs的方式，首先要将输入转成patch，文章采用超参p=2，4，8进行对比实验。</p>
+
+<p><strong>DiT模块设计</strong>：</p>
+
+<ul>
+  <li>In-context条件：in-context条件是将t和c作为额外的token拼接到DiT的token输入中；</li>
+  <li>Cross-attention模块：DiT结构与Condition交互的方式，与原来U-Net结构类似；</li>
+  <li>Adaptive layer norm（adaLN）模块：使用adaLN替换原生LayerNorm（NeurIPS2019的文章，LN 模块中的某些参数不起作用，甚至会增加过拟合的风险。所以提出一种没有可学习参数的归一化技术）；</li>
+  <li>adaLN-zero模块：之前的工作发现ResNets中每一个残差模块使用相同的初始化函数是有益的。文章提出对DiT中的残差模块的参数γ、β、α进行衰减，以达到类似的目的。</li>
+</ul>
+
+<p><strong>模型大小</strong>：与ViT大小相似，分别使用DiT-S、DiT-B、DiT-L和DiT-XL，Gflops从0.3dao118.6。</p>
+
+<p><strong>Transformer Decoder</strong>：在Transformer最上层需要预测噪音，因为Transformer可以保证大小与输入一致，所以在最上层使用一层线性进行decoder。</p>
+
+<p><img src="./Vision%20Transformer.assets/image-20240411102956181.png" alt="image-20240411102956181" /></p>
+
+</div>
+
+<span class="post-tags">
+    
+      <i class="fa fa-tag fa-xs" aria-hidden="true"></i>
+      
+      <a class="no-underline" href="/tag/AI"><nobr>AI</nobr></code>&nbsp;</a>    
+    
+      <i class="fa fa-tag fa-xs" aria-hidden="true"></i>
+      
+      <a class="no-underline" href="/tag/Transformer"><nobr>Transformer</nobr></code>&nbsp;</a>    
+    
+      <i class="fa fa-tag fa-xs" aria-hidden="true"></i>
+      
+      <a class="no-underline" href="/tag/Vision"><nobr>Vision</nobr></code>&nbsp;</a>    
+    
+</span>
+
+<div class="recent">
+  <h2>Recent Posts</h2>
+  <ul class="recent-posts">
+    
+      <li>
+        <h4>
+          <a href="/project/2024/04/28/Local-RAG-LLM-Project.html">
+            Local RAG LLM Project
+          </a>
+          <small>[28 Apr 2024]</small>
+        </h4>
+      </li>
+    
+      <li>
+        <h4>
+          <a href="/working/2024/03/25/My-Tasks-and-Notes.html">
+            working todo
+          </a>
+          <small>[25 Mar 2024]</small>
+        </h4>
+      </li>
+    
+      <li>
+        <h4>
+          <a href="/learning/2024/03/25/Mathematics-in-MLSVD-(Singular-value-decomposition)-and-PCA.html">
+            Understanding SVD and PCA in Mathematics
+          </a>
+          <small>[25 Mar 2024]</small>
+        </h4>
+      </li>
+    
+  </ul>
+</div>
+    </div>
+
+  </body>
+</html>

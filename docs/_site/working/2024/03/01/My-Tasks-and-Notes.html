@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  
+  <!-- include collecttags -->
+  
+  
+
+
+
+
+
+  
+
+  <title>
+    
+      working todo &middot; Zhu Philip's AI Journey
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- merge something else -->
+  
+  <link rel="stylesheet" href="/assets/css/blog.css" />
+  
+  
+  <link rel="stylesheet" href="/assets/css/common.css" />
+  <script src="/assets/js/categories.js"></script>  
+   
+
+  <!-- MathJax -->
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script> 
+
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89141653-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89141653-4');
+</script>
+
+
+
+  <body>
+
+    <link rel="stylesheet" href="/assets/style-3.css">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <div align="center">
+          <img src="/assets/profile-pixel.png" class="profilepic pt-3 pb-2">
+        </div>
+        <!-- <a href="/"> -->
+          Zhu Philip's AI Journey
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      <!-- Manual set order -->
+      <a class="sidebar-nav-item" href="/categories">Categories</a>
+      <a class="sidebar-nav-item" href="/working">Working</a>
+      <a class="sidebar-nav-item" href="/publication">Publication</a>
+      <a class="sidebar-nav-item" href="/cv">cv</a>
+      <!-- <a class="sidebar-nav-item" href="/projects">Projects</a> -->
+      <a class="sidebar-nav-item" href="/about">About</a>
+
+      <!-- Uncomment for auto order -->
+      <!-- 
+
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/cv/">CV</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/publication/">publications</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/working/">Working</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+       -->
+
+      
+      <!-- <a class="sidebar-nav-item" href="https://github.com/zphilip/zphilip.github.io">GitHub project</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v</span> -->
+      
+<div id="social-media">
+    
+    
+        
+        
+            <a href="mailto:zphilip48@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+        
+    
+        
+        
+            <a href="https://www.linkedin.com/in/tianda-zhu-37a5b031" title="Linkedin"><i class="fab fa-linkedin"></i></a>
+        
+    
+        
+        
+            <a href="https://github.com/zphilip" title="GitHub"><i class="fab fa-github"></i></a>
+        
+    
+        
+        
+            <a href="https://www.youtube.com/user/zphilip" title="YouTube"><i class="fab fa-youtube"></i></a>
+        
+    
+</div>
+
+
+    </nav>
+
+    <p>&copy; 2025. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="page">
+  <h1 class="page-title">working todo</h1>
+  <p>#todo</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />#task compare the nougat small model and code with the nougat big model what’s the different between them.  🔼 🛫 2024-01-09 : ✅ 2024-01-21</li>
+  <li class="task-list-item">transformer version change to  4.34.1, then it work (static saving safe is in newer version)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />#task based work output of above task let’s partially loading the Chinese Bart pre-trained model data 🔼 🛫 2024-01-09 ✅ 2024-02-29</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />prepare one small set dataset include Chinese data for training 🔼 🛫 2024-01-09 ✅ 2024-01-21</li>
+  <li class="task-list-item">small set dataset — nougat-dataset-test include - ocrpadded, ocrset</li>
+  <li class="task-list-item">Done. the original bart model (“facebook/mbart-large-50”) already has multiple language support include chinese Bart pre-trained ,</li>
+  <li class="task-list-item">languages covered
+Arabic (ar_AR), Czech (cs_CZ), German (de_DE), English (en_XX), Spanish (es_XX), Estonian (et_EE), Finnish (fi_FI), French (fr_XX), Gujarati (gu_IN), Hindi (hi_IN), Italian (it_IT), Japanese (ja_XX), Kazakh (kk_KZ), Korean (ko_KR), Lithuanian (lt_LT), Latvian (lv_LV), Burmese (my_MM), Nepali (ne_NP), Dutch (nl_XX), Romanian (ro_RO), Russian (ru_RU), Sinhala (si_LK), Turkish (tr_TR), Vietnamese (vi_VN), Chinese (zh_CN), Afrikaans (af_ZA), Azerbaijani (az_AZ), Bengali (bn_IN), Persian (fa_IR), Hebrew (he_IL), Croatian (hr_HR), Indonesian (id_ID), Georgian (ka_GE), Khmer (km_KH), Macedonian (mk_MK), Malayalam (ml_IN), Mongolian (mn_MN), Marathi (mr_IN), Polish (pl_PL), Pashto (ps_AF), Portuguese (pt_XX), Swedish (sv_SE), Swahili (sw_KE), Tamil (ta_IN), Telugu (te_IN), Thai (th_TH), Tagalog (tl_XX), Ukrainian (uk_UA), Urdu (ur_PK), Xhosa (xh_ZA), Galician (gl_ES), Slovene (sl_SI)</li>
+</ul>
+
+<p>The loading such as :  ==MBartForCausalLM.from_pretrained( “facebook/mbart-large-50” ).state_dict()==</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />adding authentication function to android and pc side client. let’s start this after Chinese supporting in server side.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />adding authentication and security function to server side (multiple user supporting). let’s start this after Chinese supporting in server side.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />today’s work 📅 2024-01-11 , ⏫  try to modify the ocr padding method to scale the ocr png to size fit  swin-transformer , then padding.  I suspect the training error is caused by too small png 🛫 padding.  current size is 672(w)x896(h)x8.. arxiv size is 816x1056x24.. something wrong. ✅ 2024-02-29</li>
+  <li class="task-list-item">notice that the original code has the resize function to make the small picture to fit the 886*672 size , so using the original un-padding figure (latex ocr dataset image) to feed the current training. but still have the “repetition error”</li>
+  <li class="task-list-item">==(DONE) put the original un-padding figure  and the padded figure together into the training== , it seems that the training have no “repetition error” still unclear why it is so????
+    <ul>
+      <li>this have the repetition error… while using bigger dataset from arXiv orignal data</li>
+      <li>I am think the VIT how to train the all blank image… it is lead to some error , or how it is treated , get some test ???</li>
+      <li>how about using all back or white image as training data</li>
+      <li>how the voice to text treat the white noise? how the blank image is treated</li>
+      <li>in normal ViT , the fixed size image is always required…,   how about reserve the SWIN transformer architecture, change from low level resolution to high resolution</li>
+      <li>#todo Need to check the result after above change….</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />bleu score ✅ 2024-01-12, the bleu score is noted at [[Transformer_learning#3.2 Bleu Score]]</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Pytorch-view的用法 ✅ 2024-02-29</li>
+  <li class="task-list-item">在pytorch中view函数的作用为重构张量的维度，相当于numpy中resize（）的功能，但是用法可能不太一样。如下例所示</li>
+</ul>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; tt1=torch.tensor([-0.3623, -0.6115,  0.7283,  0.4699,  2.3261,  0.1599])
+&gt;&gt;&gt; result=tt1.view(3,2)
+&gt;&gt;&gt; result
+tensor([[-0.3623, -0.6115],
+        [ 0.7283,  0.4699],
+        [ 2.3261,  0.1599]])
+</code></pre></div></div>
+
+<ol>
+  <li>torch.view(参数a，参数b，…)</li>
+</ol>
+
+<p>在上面例子中参数a=3和参数b=2决定了将一维的tt1重构成3x2维的张量。</p>
+
+<ol>
+  <li>有的时候会出现torch.view(-1)或者torch.view(参数a，-1)这种情况。
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; tt2=torch.tensor([[-0.3623, -0.6115],
+...         [ 0.7283,  0.4699],
+...         [ 2.3261,  0.1599]])
+&gt;&gt;&gt; result=tt2.view(-1)
+&gt;&gt;&gt; result
+tensor([-0.3623, -0.6115,  0.7283,  0.4699,  2.3261,  0.1599])
+</code></pre></div>    </div>
+    <p>由上面的案例可以看到，如果是torch.view(-1)，则原张量会变成一维的结构。</p>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; tt3=torch.tensor([[-0.3623, -0.6115],
+...         [ 0.7283,  0.4699],
+...         [ 2.3261,  0.1599]])
+&gt;&gt;&gt; result=tt3.view(2,-1)
+&gt;&gt;&gt; result
+tensor([[-0.3623, -0.6115,  0.7283],
+     [ 0.4699,  2.3261,  0.1599]])
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>由上面的案例可以看到，如果是torch.view(参数a，-1)，则表示在参数b未知，参数a已知的情况下自动补齐列向量长度，在这个例子中a=2，tt3总共由6个元素，则b=6/2=3。</p>
+
+<p>**Albumentations数据增强方法 **, practice in notebook “/labs/nougat_unet/predict.ipynb”, refer page <a href="https://blog.csdn.net/qq_27039891/article/details/100795846">Albumentations数据增强方法_shiftscalerotate-CSDN博客</a></p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Long Table splitting into small one</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Text emotion /sentiment split, text to voice model study…etc</li>
+</ul>
+
+</div>
+
+    </div>
+
+  </body>
+</html>

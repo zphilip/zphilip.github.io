@@ -264,13 +264,17 @@
         
       
         
-      
-        
           
         
       
         
           
+        
+      
+        
+          
+        
+      
         
        -->
 
@@ -306,7 +310,7 @@
 
     </nav>
 
-    <p>&copy; 2024. All rights reserved.</p>
+    <p>&copy; 2025. All rights reserved.</p>
   </div>
 </div>
 
@@ -314,6 +318,81 @@
     <div class="content container">
       <!-- This loops through the paginated posts -->
 <section class="articles">
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/01/convolutional-neural-networks-step-by-step.html"> Convolutional Neural Networks: Step by Step </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    卷积的数学表示 \(f∗g(n)=∫_{−∞}^{+∞}​f(τ)g(n−τ)dτ\) 上面公式是连续的定义，再看看离散的定义： \[f∗g(n)=τ=∑_{−∞}^{+∞}​f(τ)g(n−τ)\] 互相关与卷积 一些深度学习教程都使用这种互相关运算来解释卷积的计算过程。但实际上，计算过程并非学术上严格意义上的卷积。 我们将这种互相关的矩阵乘法转换成公式，如果输入矩阵为I，核矩阵为K，核矩阵K形状为m×n。我们想要得到输出矩阵O中(i,j)位置的元素，其实就是对矩阵中各个数字做乘法，最后累加到一起。 \(O(i,j)=(K∗I)(i,j)=\sum_m\sum_n​I(i+m,j+n)K(m,n)\) 上面公式中，$I(i+m,j+n)K(m,n)$表示输入矩阵的某个元素I(i+m,j+n)与核矩阵的元素K(m,n)相乘。$\sum_m$和$\sum_n$​分别在矩阵的横向和纵向做累加。 但这个公式依然与最初看到的卷积公式有些区别，我们将输入矩阵的加号改为减号：\(O(i,j)=(K∗I)(i,j)=\sum_m\sum_n​I(i−m,j−n)K(m,n)\) 这就出现了卷积公式中的减号，那么这两个矩阵实际的计算类似于： 图4 两个矩阵之间进行卷积运算 也就是说，输入矩阵深色区域的最后一个元素与核矩阵的第一个元素相乘，输入矩阵深色区域的倒数第二个元素与核矩阵的第二个元素相乘，以此类推…又或者说，把核矩阵旋转180度，再与输入矩阵相乘。 卷积数学公式中的减号，在二维矩阵的场景下，可以被解释为：先旋转、再相乘。由于在深度学习中，核矩阵是一个需要训练的参数，卷积神经网络都是针对图像，图像即使旋转180度，对于计算机来说区别不大。旋转与否，或者说是否使用减号，对于深度学习来说关系不大，反而不旋转的互相关运算计算起来更方便。因此，很多深度学习框架直接使用互相关运算来表示卷积的过程。 Convolutional Neural Networks: Step by Step Welcome to Course 4’s first assignment! In this assignment, you will implement convolutional (CONV) and pooling (POOL) layers in numpy, including both forward propagation and (optionally) backward propagation. Notation:...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/01/Convolution-model-Application-v1a.html"> Convolutional Neural Networks: Application </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    Convolutional Neural Networks: Application Welcome to Course 4’s second assignment! In this notebook, you will: Implement helper functions that you will use when implementing a TensorFlow model Implement a fully functioning ConvNet using TensorFlow After this assignment you will be able to: Build and train a ConvNet in TensorFlow for...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/01/BERT-Pytorch-Scratch.html"> BERT Pytorch from Scratch </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    !pip install transformers datasets tokenizers !wget http://www.cs.cornell.edu/~cristian/data/cornell_movie_dialogs_corpus.zip !unzip -qq cornell_movie_dialogs_corpus.zip !rm cornell_movie_dialogs_corpus.zip !mkdir datasets !mv cornell\ movie-dialogs\ corpus/movie_conversations.txt ./datasets !mv cornell\ movie-dialogs\ corpus/movie_lines.txt ./datasets Looking in indexes: http://mirrors.tencentyun.com/pypi/simple Requirement already satisfied: transformers in /home/ubuntu/miniconda3/lib/python3.10/site-packages (4.29.1) Collecting datasets Downloading http://mirrors.tencentyun.com/pypi/packages/fb/1c/85a22f3fa02dce5403094c5dbce494d62343b5a7e518bdf6e4200dda7337/datasets-2.12.0-py3-none-any.whl (474 kB) [2K [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m474.6/474.6 kB[0m [31m1.6 MB/s[0m eta [36m0:00:00[0m00:01[0m00:01[0m [?25hRequirement...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2023/12/01/BERT-GPT-Diffusion-Research.html"> BERT GPT Diffusion Research </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+    1.BERT (Bidirectional Encoder Representation Transformer#1) 1, The BERT Paper &amp; Resources [Mastering BERT Model: A Complete Guide to Build it from Scratch by CheeKean Medium](https://kean-chan.medium.com/complete-guide-to-building-bert-model-from-sratch-3e6562228891) [BERT Explained: A Complete Guide with Theory and Tutorial by Samia Khalid Medium](https://medium.com/@samia.khalid/bert-explained-a-complete-guide-with-theory-and-tutorial-3ac9ebc8fa7c) [google-research/bert: TensorFlow code and pre-trained models for BERT (github.com) Colab Notebook: Predicting...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/11/26/Transformer-learning-C5W4A1SubclassV1.html"> Transformer Network </a>
+    </h2>
+    <small class="date">26 Nov 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    I update this document also refere to https://www.tensorflow.org/tutorials/text/transformer?hl=zh-cn https://nlp.seas.harvard.edu/2018/04/03/attention.html#positional-encoding Transformer Network Welcome to Week 4’s assignment, the last assignment of Course 5 of the Deep Learning Specialization! And congratulations on making it to the last assignment of the entire Deep Learning Specialization - you’re almost done! Ealier in the course,...
+  </article>
   
   <article class="article">
     <h2 class="article-title">
@@ -390,85 +469,80 @@
     RNN and LSMT LSTM , Backward propagation in LSTMAnd of course, LSTM — Part II. Deriving the gradients for Backward… | by Eniola Alese | ExplainingML | Medium&nbsp;&nbsp;Step 1: We define the loss function for cost computation. The choice of loss function is usually based on the task at hand,...
   </article>
   
-  <article class="article">
-    <h2 class="article-title">
-      <a href="/coding/2023/01/26/neural-network-bach-normalization-scratch.html"> neural network + Bach normalization </a>
-    </h2>
-    <small class="date">26 Jan 2023</small>
-    <div class="categories">
-      
-      <a href="#!" data-base-url="" class="category"
-        >coding</a
-      >
-      
-    </div>
-    3-layer neural network + Bach normalization softmax cost function used in derivative The batch normalization derivation import numpy as np class NeuralNetwork: def __init__(self, input_size, hidden_size, output_size, learning_rate): self.input_size = input_size self.hidden_size = hidden_size self.output_size = output_size self.learning_rate = learning_rate # Initialize weights and biases self.W1 = np.random.randn(input_size, hidden_size) self.b1...
-  </article>
-  
-  <article class="article">
-    <h2 class="article-title">
-      <a href="/coding/2023/01/26/Langevin-Monte-Carlo.html"> Langevin Monte Carlo </a>
-    </h2>
-    <small class="date">26 Jan 2023</small>
-    <div class="categories">
-      
-      <a href="#!" data-base-url="" class="category"
-        >coding</a
-      >
-      
-    </div>
-    %matplotlib inline import numpy as np import torch import matplotlib.pyplot as plt from tqdm import tqdm_notebook as tqdm Langevin Monte Carlo New samples are proposed by simulating the Langevin Stochastic Differential Equation (SDE) which is given by \[dX_t = -\nabla U(X_t)dt + \sqrt{2}dB_t\] where $U$ is the potential function (势能函数)...
-  </article>
-  
-  <article class="article">
-    <h2 class="article-title">
-      <a href="/coding/2023/01/26/gbm-implementation.html"> gbm Implementation </a>
-    </h2>
-    <small class="date">26 Jan 2023</small>
-    <div class="categories">
-      
-      <a href="#!" data-base-url="" class="category"
-        >coding</a
-      >
-      
-    </div>
-    Implementation of Friedman’s GBM with Custom Objective In this notebook, I figure out the hacks needed to implement Friedman’s original GBM algorithm using sklearn DecisionTreeRegressor as the weak learner and scipy minimize as the argmin method. Basically we just need to be able to modify the tree predictions to predict...
-  </article>
-  
-  <article class="article">
-    <h2 class="article-title">
-      <a href="/coding/2023/01/26/GMM-from-scratch.html"> Gaussian Mixture Model Clearly Explained </a>
-    </h2>
-    <small class="date">26 Jan 2023</small>
-    <div class="categories">
-      
-      <a href="#!" data-base-url="" class="category"
-        >coding</a
-      >
-      
-    </div>
-    Gaussian Mixture Model Clearly Explained The only guide you need to learn everything about GMM When we talk about Gaussian Mixture Model (later, this will be denoted as GMM in this article), it’s essential to know how the KMeans algorithm works. Because GMM is quite similar to the KMeans, more...
-  </article>
-  
-  <article class="article">
-    <h2 class="article-title">
-      <a href="/coding/2023/01/26/regression-tree.html"> Regression Tree Practise </a>
-    </h2>
-    <small class="date">26 Jan 2023</small>
-    <div class="categories">
-      
-      <a href="#!" data-base-url="" class="category"
-        >coding</a
-      >
-      
-    </div>
-    Regression Tree 回归树 Practise example one https://github.com/Microstrong0305/WeChat-zhihu-csdnblog-code/tree/master/Decision%20Tree/lihang_5.2 from numpy import * # 载入数据 def loadDataSet(fileName): dataMat = [] fr = open(fileName) for line in fr.readlines(): curLine = line.strip().split('\t') # python3不适用：fltLine = map(float,curLine) 修改为： fltLine = list(map(float, curLine)) # 将每行映射成浮点数，python3返回值改变，所以需要 dataMat.append(fltLine) return dataMat # Tree结点类型：回归树 def regLeaf(dataSet): # 生成叶结点，在回归树中是目标变量标签值的均值 return mean(dataSet[:,-1])...
-  </article>
-  
 </section>
 
 <!-- This loops through the paginated posts --
 <section class="articles">
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/project/2024/04/28/Local-RAG-LLM-Project.html"> Local RAG LLM Project </a>
+    </h2>
+    <small class="date">28 Apr 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >Project</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2024/04/28/Vision-Transformer.html"> Vision Transformer </a>
+    </h2>
+    <small class="date">28 Apr 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/working/2024/03/25/My-Tasks-and-Notes.html"> working todo </a>
+    </h2>
+    <small class="date">25 Mar 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >working</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2024/03/25/Mathematics-in-MLSVD-(Singular-value-decomposition)-and-PCA.html"> Understanding SVD and PCA in Mathematics </a>
+    </h2>
+    <small class="date">25 Mar 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/working/2024/03/01/My-Tasks-and-Notes.html"> working todo </a>
+    </h2>
+    <small class="date">01 Mar 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >working</a
+      >
+      
+    </div>
+  </article>
   
   <article class="article">
     <h2 class="article-title">
@@ -905,7 +979,7 @@
     <a class="pagination-item older" href="/blog/page3/">Older</a>
   
   <!-- <span class="page_number ">
-    Page: 2 of 3
+    Page: 2 of 4
   </span> -->
 </div>
 

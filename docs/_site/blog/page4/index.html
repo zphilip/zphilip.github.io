@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  
+  <!-- include collecttags -->
+  
+  
+
+
+
+
+
+  
+
+  <title>
+    
+      Zhu Philip's AI Journey &middot; 
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- merge something else -->
+  
+  <link rel="stylesheet" href="/assets/css/blog.css" />
+  
+  
+  <link rel="stylesheet" href="/assets/css/common.css" />
+  <script src="/assets/js/categories.js"></script>  
+   
+
+  <!-- MathJax -->
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script> 
+
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89141653-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89141653-4');
+</script>
+
+
+
+  <body>
+
+    <link rel="stylesheet" href="/assets/style-3.css">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <div align="center">
+          <img src="/assets/profile-pixel.png" class="profilepic pt-3 pb-2">
+        </div>
+        <!-- <a href="/"> -->
+          Zhu Philip's AI Journey
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      <!-- Manual set order -->
+      <a class="sidebar-nav-item" href="/categories">Categories</a>
+      <a class="sidebar-nav-item" href="/working">Working</a>
+      <a class="sidebar-nav-item" href="/publication">Publication</a>
+      <a class="sidebar-nav-item" href="/cv">cv</a>
+      <!-- <a class="sidebar-nav-item" href="/projects">Projects</a> -->
+      <a class="sidebar-nav-item" href="/about">About</a>
+
+      <!-- Uncomment for auto order -->
+      <!-- 
+
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/cv/">CV</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/publication/">publications</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/working/">Working</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+       -->
+
+      
+      <!-- <a class="sidebar-nav-item" href="https://github.com/zphilip/zphilip.github.io">GitHub project</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v</span> -->
+      
+<div id="social-media">
+    
+    
+        
+        
+            <a href="mailto:zphilip48@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+        
+    
+        
+        
+            <a href="https://www.linkedin.com/in/tianda-zhu-37a5b031" title="Linkedin"><i class="fab fa-linkedin"></i></a>
+        
+    
+        
+        
+            <a href="https://github.com/zphilip" title="GitHub"><i class="fab fa-github"></i></a>
+        
+    
+        
+        
+            <a href="https://www.youtube.com/user/zphilip" title="YouTube"><i class="fab fa-youtube"></i></a>
+        
+    
+</div>
+
+
+    </nav>
+
+    <p>&copy; 2025. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <!-- This loops through the paginated posts -->
+<section class="articles">
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2021/01/26/Machine-LearningNote-Pub.html"> Machine Learning Notes </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+    Machine Learning (some parts are still need updated) Linear regression/prediction formula the Lost function $J(\theta)$ and fine the parameters $\theta$ by the data (x, y) Matrix format is : $\widehat{y} = X\ \theta\ $, each x have d dimension features , total have n data pair ( y_i, x_i) Assume...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/Bayesian-Optimization-2.html"> Bayesian Optimization 2 </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    Hyper-parameter tuning with Bayesian optimization or how I carved boats from wood https://towardsdatascience.com/bayesian-optimization-or-how-i-carved-boats-from-wood-examples-and-code-78b9c79b31e5 Theory When explaining the problem I find it useful to bear in mind the final goal. The goal of this article would be finding hyper-parameters for a deep neural network that would maximize the validation accuracy. For...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/Bayesian-Optimization-1.html"> Bayesian Optimization with GPyOpt </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    Bayesian Optimization with GPyOpt This example only show how the GPyOpt API work Try to find optimal hyperparameters to XGBoost model using Bayesian optimization with GP, with the diabetes dataset (from sklearn) as input. Let’s first load the dataset with the following python code snippet: from sklearn import datasets from...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/mcmc-introduction-3.html"> Mcmc Introduction 3 </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    Pure Monte Carlo (MCMC) sampling Importance Sampling — Using sampling to approximate a distribution \(E[f(x)] = \int f(x)p(x) dx \approx \frac{1}{n}\sum_{i} f(x_i)\) where $ x \sim p(x)$ \[E[f(x)] = \int f(x)p(x) dx = \int f(x)\frac{p(x)}{q(x)}q(x) dx \approx \frac{1}{n} \sum_{i} f(x_i)\frac{p(x_i)}{q(x_i)}\] where $ x \sim q(x)$ Idea of importance sampling: draw...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/mcmc-introduction-2.html"> Mcmc Introduction 2 </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    original of this example : https://towardsdatascience.com/from-scratch-bayesian-inference-markov-chain-monte-carlo-and-metropolis-hastings-in-python-ef21a29e25a From Scratch: Bayesian Inference, Markov Chain Monte Carlo and Metropolis Hastings, in python In one of the courses during my data science degree, I came across a technique called Markov Chain Monte Carlo, or as it’s more commonly referred to, MCMC. The description for this...
+  </article>
+  
+</section>
+
+<!-- This loops through the paginated posts --
+<section class="articles">
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/project/2024/04/28/Local-RAG-LLM-Project.html"> Local RAG LLM Project </a>
+    </h2>
+    <small class="date">28 Apr 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >Project</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2024/04/28/Vision-Transformer.html"> Vision Transformer </a>
+    </h2>
+    <small class="date">28 Apr 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/working/2024/03/25/My-Tasks-and-Notes.html"> working todo </a>
+    </h2>
+    <small class="date">25 Mar 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >working</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2024/03/25/Mathematics-in-MLSVD-(Singular-value-decomposition)-and-PCA.html"> Understanding SVD and PCA in Mathematics </a>
+    </h2>
+    <small class="date">25 Mar 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/working/2024/03/01/My-Tasks-and-Notes.html"> working todo </a>
+    </h2>
+    <small class="date">01 Mar 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >working</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/11/diffusion-model-demo2.html"> A Diffusion Model from Scratch in Pytorch </a>
+    </h2>
+    <small class="date">11 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/11/diffusion-model-demo1.html"> Diffusion Models Tutorial </a>
+    </h2>
+    <small class="date">11 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/02/transformer-implementation.html"> transformer implementation </a>
+    </h2>
+    <small class="date">02 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/02/Inspect-BERT-Vocabulary.html"> Inspect BERT Vocabulary </a>
+    </h2>
+    <small class="date">02 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/working/2023/12/01/My-Tasks-and-Notes.html"> working todo </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >working</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/01/convolutional-neural-networks-step-by-step.html"> Convolutional Neural Networks: Step by Step </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/01/Convolution-model-Application-v1a.html"> Convolutional Neural Networks: Application </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/12/01/BERT-Pytorch-Scratch.html"> BERT Pytorch from Scratch </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2023/12/01/BERT-GPT-Diffusion-Research.html"> BERT GPT Diffusion Research </a>
+    </h2>
+    <small class="date">01 Dec 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/11/26/Transformer-learning-C5W4A1SubclassV1.html"> Transformer Network </a>
+    </h2>
+    <small class="date">26 Nov 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/11/02/xgboost-from-scratch.html"> XGBoost from scratch </a>
+    </h2>
+    <small class="date">02 Nov 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/11/01/Understanding-the-performance-of-LightGBM-and-XGBoost.html"> Understanding the performance of LightGBM and XGBoost </a>
+    </h2>
+    <small class="date">01 Nov 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/10/26/BERT-FineTuning-Sentence-Classification-v4.html"> BERT Fine-Tuning Tutorial with PyTorch </a>
+    </h2>
+    <small class="date">26 Oct 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/10/11/expectation-maximization-algorithm.html"> Expection Maximization </a>
+    </h2>
+    <small class="date">11 Oct 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2023/01/26/RNN-and-LSMT.html"> RNN and LSMT </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/neural-network-bach-normalization-scratch.html"> neural network + Bach normalization </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/Langevin-Monte-Carlo.html"> Langevin Monte Carlo </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/gbm-implementation.html"> gbm Implementation </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/GMM-from-scratch.html"> Gaussian Mixture Model Clearly Explained </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/regression-tree.html"> Regression Tree Practise </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/gprDemoMarglik.html"> a Gaussian Process Regression with multiple local minima </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/Bayesian-Learning.html"> Bayesian Learning </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2023/01/26/Gradient-boosting.html"> Gradient boosting </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/learning/2023/01/02/GPR.html"> GPR </a>
+    </h2>
+    <small class="date">02 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2021/01/26/Markov-Chain-Monte-Carlo.html"> Markov Chain Monte Carlo </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2021/01/26/Machine-LearningNote-Pub.html"> Machine Learning Notes </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >LEARNING</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/Bayesian-Optimization-2.html"> Bayesian Optimization 2 </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/Bayesian-Optimization-1.html"> Bayesian Optimization with GPyOpt </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/mcmc-introduction-3.html"> Mcmc Introduction 3 </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2021/01/26/mcmc-introduction-2.html"> Mcmc Introduction 2 </a>
+    </h2>
+    <small class="date">26 Jan 2021</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+  </article>
+  
+</section>   -->
+
+<!-- Pagination links -->
+<div class="pagination">
+  
+    <a class="pagination-item newer" href="/blog/page3/">Newer</a>
+  
+  
+    <span class="pagination-item older">Older</span>
+  
+  <!-- <span class="page_number ">
+    Page: 4 of 4
+  </span> -->
+</div>
+
+
+
+
+
+
+
+    </div>
+
+  </body>
+</html>

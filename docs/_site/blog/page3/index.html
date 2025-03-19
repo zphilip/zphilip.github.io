@@ -264,13 +264,17 @@
         
       
         
-      
-        
           
         
       
         
           
+        
+      
+        
+          
+        
+      
         
        -->
 
@@ -306,7 +310,7 @@
 
     </nav>
 
-    <p>&copy; 2024. All rights reserved.</p>
+    <p>&copy; 2025. All rights reserved.</p>
   </div>
 </div>
 
@@ -314,6 +318,81 @@
     <div class="content container">
       <!-- This loops through the paginated posts -->
 <section class="articles">
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/neural-network-bach-normalization-scratch.html"> neural network + Bach normalization </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    3-layer neural network + Bach normalization softmax cost function used in derivative The batch normalization derivation import numpy as np class NeuralNetwork: def __init__(self, input_size, hidden_size, output_size, learning_rate): self.input_size = input_size self.hidden_size = hidden_size self.output_size = output_size self.learning_rate = learning_rate # Initialize weights and biases self.W1 = np.random.randn(input_size, hidden_size) self.b1...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/Langevin-Monte-Carlo.html"> Langevin Monte Carlo </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    %matplotlib inline import numpy as np import torch import matplotlib.pyplot as plt from tqdm import tqdm_notebook as tqdm Langevin Monte Carlo New samples are proposed by simulating the Langevin Stochastic Differential Equation (SDE) which is given by \[dX_t = -\nabla U(X_t)dt + \sqrt{2}dB_t\] where $U$ is the potential function (势能函数)...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/gbm-implementation.html"> gbm Implementation </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    Implementation of Friedman’s GBM with Custom Objective In this notebook, I figure out the hacks needed to implement Friedman’s original GBM algorithm using sklearn DecisionTreeRegressor as the weak learner and scipy minimize as the argmin method. Basically we just need to be able to modify the tree predictions to predict...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/GMM-from-scratch.html"> Gaussian Mixture Model Clearly Explained </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    Gaussian Mixture Model Clearly Explained The only guide you need to learn everything about GMM When we talk about Gaussian Mixture Model (later, this will be denoted as GMM in this article), it’s essential to know how the KMeans algorithm works. Because GMM is quite similar to the KMeans, more...
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/coding/2023/01/26/regression-tree.html"> Regression Tree Practise </a>
+    </h2>
+    <small class="date">26 Jan 2023</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >coding</a
+      >
+      
+    </div>
+    Regression Tree 回归树 Practise example one https://github.com/Microstrong0305/WeChat-zhihu-csdnblog-code/tree/master/Decision%20Tree/lihang_5.2 from numpy import * # 载入数据 def loadDataSet(fileName): dataMat = [] fr = open(fileName) for line in fr.readlines(): curLine = line.strip().split('\t') # python3不适用：fltLine = map(float,curLine) 修改为： fltLine = list(map(float, curLine)) # 将每行映射成浮点数，python3返回值改变，所以需要 dataMat.append(fltLine) return dataMat # Tree结点类型：回归树 def regLeaf(dataSet): # 生成叶结点，在回归树中是目标变量标签值的均值 return mean(dataSet[:,-1])...
+  </article>
   
   <article class="article">
     <h2 class="article-title">
@@ -394,11 +473,30 @@
     Markov Chain Basic $X_n$ state after $n$ transitions belongs to a finite set initial state $X_0$ either given or random transition probabilities: \[\begin{aligned} p_{i j} &amp; =\mathbf{P}\left(X_1=j \mid X_0=i\right) \\ &amp; =\mathbf{P}\left(X_{n+1}=j \mid X_n=i\right) \end{aligned}\] Markov property/assumption: “given current state, the past doesn’t matter” \(\begin{aligned} p_{i j} &amp; =\mathbf{P}\left(X_{n+1}=j \mid...
   </article>
   
+</section>
+
+<!-- This loops through the paginated posts --
+<section class="articles">
+  
   <article class="article">
     <h2 class="article-title">
-      <a href="/learning/2021/01/26/Machine-LearningNote-Pub.html"> Machine Learning Notes </a>
+      <a href="/project/2024/04/28/Local-RAG-LLM-Project.html"> Local RAG LLM Project </a>
     </h2>
-    <small class="date">26 Jan 2021</small>
+    <small class="date">28 Apr 2024</small>
+    <div class="categories">
+      
+      <a href="#!" data-base-url="" class="category"
+        >Project</a
+      >
+      
+    </div>
+  </article>
+  
+  <article class="article">
+    <h2 class="article-title">
+      <a href="/learning/2024/04/28/Vision-Transformer.html"> Vision Transformer </a>
+    </h2>
+    <small class="date">28 Apr 2024</small>
     <div class="categories">
       
       <a href="#!" data-base-url="" class="category"
@@ -406,73 +504,49 @@
       >
       
     </div>
-    Machine Learning (some parts are still need updated) Linear regression/prediction formula the Lost function $J(\theta)$ and fine the parameters $\theta$ by the data (x, y) Matrix format is : $\widehat{y} = X\ \theta\ $, each x have d dimension features , total have n data pair ( y_i, x_i) Assume...
   </article>
   
   <article class="article">
     <h2 class="article-title">
-      <a href="/coding/2021/01/26/Bayesian-Optimization-2.html"> Bayesian Optimization 2 </a>
+      <a href="/working/2024/03/25/My-Tasks-and-Notes.html"> working todo </a>
     </h2>
-    <small class="date">26 Jan 2021</small>
+    <small class="date">25 Mar 2024</small>
     <div class="categories">
       
       <a href="#!" data-base-url="" class="category"
-        >coding</a
+        >working</a
       >
       
     </div>
-    Hyper-parameter tuning with Bayesian optimization or how I carved boats from wood https://towardsdatascience.com/bayesian-optimization-or-how-i-carved-boats-from-wood-examples-and-code-78b9c79b31e5 Theory When explaining the problem I find it useful to bear in mind the final goal. The goal of this article would be finding hyper-parameters for a deep neural network that would maximize the validation accuracy. For...
   </article>
   
   <article class="article">
     <h2 class="article-title">
-      <a href="/coding/2021/01/26/Bayesian-Optimization-1.html"> Bayesian Optimization with GPyOpt </a>
+      <a href="/learning/2024/03/25/Mathematics-in-MLSVD-(Singular-value-decomposition)-and-PCA.html"> Understanding SVD and PCA in Mathematics </a>
     </h2>
-    <small class="date">26 Jan 2021</small>
+    <small class="date">25 Mar 2024</small>
     <div class="categories">
       
       <a href="#!" data-base-url="" class="category"
-        >coding</a
+        >LEARNING</a
       >
       
     </div>
-    Bayesian Optimization with GPyOpt This example only show how the GPyOpt API work Try to find optimal hyperparameters to XGBoost model using Bayesian optimization with GP, with the diabetes dataset (from sklearn) as input. Let’s first load the dataset with the following python code snippet: from sklearn import datasets from...
   </article>
   
   <article class="article">
     <h2 class="article-title">
-      <a href="/coding/2021/01/26/mcmc-introduction-3.html"> Mcmc Introduction 3 </a>
+      <a href="/working/2024/03/01/My-Tasks-and-Notes.html"> working todo </a>
     </h2>
-    <small class="date">26 Jan 2021</small>
+    <small class="date">01 Mar 2024</small>
     <div class="categories">
       
       <a href="#!" data-base-url="" class="category"
-        >coding</a
+        >working</a
       >
       
     </div>
-    Pure Monte Carlo (MCMC) sampling Importance Sampling — Using sampling to approximate a distribution \(E[f(x)] = \int f(x)p(x) dx \approx \frac{1}{n}\sum_{i} f(x_i)\) where $ x \sim p(x)$ \[E[f(x)] = \int f(x)p(x) dx = \int f(x)\frac{p(x)}{q(x)}q(x) dx \approx \frac{1}{n} \sum_{i} f(x_i)\frac{p(x_i)}{q(x_i)}\] where $ x \sim q(x)$ Idea of importance sampling: draw...
   </article>
-  
-  <article class="article">
-    <h2 class="article-title">
-      <a href="/coding/2021/01/26/mcmc-introduction-2.html"> Mcmc Introduction 2 </a>
-    </h2>
-    <small class="date">26 Jan 2021</small>
-    <div class="categories">
-      
-      <a href="#!" data-base-url="" class="category"
-        >coding</a
-      >
-      
-    </div>
-    original of this example : https://towardsdatascience.com/from-scratch-bayesian-inference-markov-chain-monte-carlo-and-metropolis-hastings-in-python-ef21a29e25a From Scratch: Bayesian Inference, Markov Chain Monte Carlo and Metropolis Hastings, in python In one of the courses during my data science degree, I came across a technique called Markov Chain Monte Carlo, or as it’s more commonly referred to, MCMC. The description for this...
-  </article>
-  
-</section>
-
-<!-- This loops through the paginated posts --
-<section class="articles">
   
   <article class="article">
     <h2 class="article-title">
@@ -906,10 +980,10 @@
     <a class="pagination-item newer" href="/blog/page2/">Newer</a>
   
   
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="/blog/page4/">Older</a>
   
   <!-- <span class="page_number ">
-    Page: 3 of 3
+    Page: 3 of 4
   </span> -->
 </div>
 
