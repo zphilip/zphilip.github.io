@@ -93,13 +93,13 @@ tensor([[-0.3623, -0.6115,  0.7283],
 1, continue doing docker maker for nougat webserver which starting from yesterday
 2, continue learning PCA 
 3, Start the nougat learning note to record the all result, following is the nougat middle model using partially arxiv data and some Chinese internet data crawlered 
-![[W&B Chart 2024_3_8 09_20_34.png]]
-![[W&B Chart 2024_3_8 09_20_54.png]]
+![](/W%26B%20Chart%202024_3_8%2009_20_34.png)
+![](/W%26B%20Chart%202024_3_8%2009_20_54.png)
 This is the previous small model training loss figure. every Time stop training and restart from checkpoint, you will see the loss is high.. unsure why?
 
-![[W&B Chart 2024_3_4 16_21_15 1.png]]
+![](/W%26B%20Chart%202024_3_4%2016_21_15%201.png)
 Previous Vit+unet transformer test result
-![[W&B Chart 2024_3_8 09_32_58.png]]
+![](/W%26B%20Chart%202024_3_8%2009_32_58.png)
 
 ## nested regex expression note: 
 example：[regex101: build, test, and debug regex](https://regex101.com/r/NsVPFp/3) 
