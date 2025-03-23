@@ -59,8 +59,12 @@ https://www.jeffgeerling.com/blog/2024/use-external-gpu-on-raspberry-pi-5-4k-gam
 https://www.jeffgeerling.com/comment/reply/node/3420/comment_node_blog_post
 ```
 git clone --depth=1 --branch rpi-6.6.y-gpu https://github.com/Coreforge/linux.git
+
+```
+git clone --branch rpi-6.6.y --depth 1  https://github.com/raspberrypi/linux.git
+```
 sudo su
-apt install git bc bison flex libssl-dev make libncurses5-dev
+sudo apt install git bc bison flex libssl-dev make libncurses5-dev
 
 # Download Coreforge's modified memcpy library.
 wget https://gist.githubusercontent.com/Coreforge/91da3d410ec7eb0ef5bc8dee24b91359/raw/b4848d1da9fff0cfcf7b601713efac1909e408e8/memcpy_unaligned.c
@@ -113,3 +117,20 @@ sudo apt-get install neofetch
 ---
 2025-03-21
 ## 2, Make llama.cpp ()
+make the llama.cpp.. 
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250321002459.png)
+
+```
+./build/bin/llama-cli -m "models/Llama-3.2-3B-Instruct-Q4_K_M.gguf" -p "Why is the blue sky blue?" -e -ngl 100 -t 4
+```
+
+it is failure due to the "buss error" , it might because the extension board only support PCIE2.. I try several different smaller gguf model but it didn't work out.  finally the PCIE will downgrade PICE gen1.. so I decide to switch the extension board firstly.
+
+## 3  I buy another extension board with only one SSD slot and support gen3
+but finally it cannot work out with eGPU even "lspci" cannot show the eGPU information, so there is totally cannot detect the eGPU...
+
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-37-06.png)
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-40-23.png)
+
+### 4 get another board to try , It will  be delivered after tomorrow. What I can do is waiting .
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-48-14.png)
