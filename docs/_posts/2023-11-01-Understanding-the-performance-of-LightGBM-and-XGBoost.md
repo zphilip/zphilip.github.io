@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Understanding the performance of LightGBM and XGBoost"
-date:   2023-11-01
+title: Understanding the performance of LightGBM and XGBoost
+date: 2023-11-01
 categories: coding
 tags: AI LightGBM XGBoost
 ---

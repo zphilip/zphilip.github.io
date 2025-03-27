@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Machine Learning Notes"
-date:   2021-01-26
+title: Machine Learning Notes
+date: 2021-01-26
 categories: LEARNING
 tags: AI
 ---

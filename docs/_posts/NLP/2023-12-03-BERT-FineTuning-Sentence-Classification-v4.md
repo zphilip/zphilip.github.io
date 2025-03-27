@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "BERT Fine-Tuning Tutorial with PyTorch"
-date:   2023-10-26
+title: BERT Fine-Tuning Tutorial with PyTorch
+date: 2023-10-26
 categories: coding
 tags: AI BERT Fine-Tuning
 ---

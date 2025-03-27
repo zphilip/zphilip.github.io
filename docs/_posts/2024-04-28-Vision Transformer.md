@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Vision Transformer"
-date:   2024-04-28
+title: Vision Transformer
+date: 2024-04-28
 categories: LEARNING
 tags: AI Transformer Vision
 ---

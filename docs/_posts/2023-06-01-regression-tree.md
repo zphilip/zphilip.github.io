@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Regression Tree Practise"
-date:   2023-01-26
+title: Regression Tree Practise
+date: 2023-01-26
 categories: coding
 tags: AI RegressionTree
 ---

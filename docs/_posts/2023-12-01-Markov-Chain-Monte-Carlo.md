@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Markov Chain Monte Carlo"
-date:   2021-01-26
+title: Markov Chain Monte Carlo
+date: 2021-01-26
 categories: LEARNING
 tags: AI MCMC
 ---

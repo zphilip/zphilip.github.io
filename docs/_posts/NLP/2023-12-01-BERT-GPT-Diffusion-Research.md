@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "BERT GPT Diffusion Research"
-date:   2023-12-01
+title: BERT GPT Diffusion Research
+date: 2023-12-01
 categories: LEARNING
 tags: AI BERT GPT Diffusion
 ---

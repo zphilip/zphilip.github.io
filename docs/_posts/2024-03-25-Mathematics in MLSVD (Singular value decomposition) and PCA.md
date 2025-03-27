@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Understanding SVD and PCA in Mathematics"
-date:   2024-03-25
+title: Understanding SVD and PCA in Mathematics
+date: 2024-03-25
 categories: LEARNING
 tags: AI SVD PCA
 ---

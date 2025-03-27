@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "A Diffusion Model from Scratch in Pytorch"
-date:   2023-12-11
+title: A Diffusion Model from Scratch in Pytorch
+date: 2023-12-11
 categories: coding
 tags: AI Diffusion
 ---

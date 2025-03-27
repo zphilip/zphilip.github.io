@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Transformer Network"
-date:   2023-11-26
+title: Transformer Network
+date: 2023-11-26
 categories: coding
 tags: AI Transformer
 ---

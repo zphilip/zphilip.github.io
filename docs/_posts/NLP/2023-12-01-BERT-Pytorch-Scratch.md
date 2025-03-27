@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "BERT Pytorch from Scratch"
-date:   2023-12-01
+title: BERT Pytorch from Scratch
+date: 2023-12-01
 categories: coding
 tags: AI BERT Pytorch
 ---

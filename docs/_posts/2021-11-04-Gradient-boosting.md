@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Gradient boosting"
-date:   2023-01-26
+title: Gradient boosting
+date: 2023-01-26
 categories: LEARNING
 tags: AI Boosting
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Expection Maximization"
-date:   2023-10-11
+title: Expection Maximization
+date: 2023-10-11
 categories: coding
 tags: AI EM
 ---

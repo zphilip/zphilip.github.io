@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Convolutional Neural Networks: Step by Step"
-date:   2023-12-01
+title: "Convolutional Neural Networks: Step by Step"
+date: 2023-12-01
 categories: coding
 tags: AI CNN
 ---

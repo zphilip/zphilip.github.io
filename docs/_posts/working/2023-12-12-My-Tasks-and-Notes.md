@@ -1,7 +1,7 @@
 ---
 layout: page
-title:  "working todo"
-date:   2023-12-01
+title: working todo
+date: 2023-12-01
 categories: working
 tags: AI
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Diffusion Models Tutorial"
-date:   2023-12-11
+title: Diffusion Models Tutorial
+date: 2023-12-11
 categories: coding
 tags: AI Diffusion
 ---

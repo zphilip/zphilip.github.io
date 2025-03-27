@@ -1,9 +1,12 @@
 ---
 layout: post
-title:  "Local RAG LLM Project"
-date:   2025-03-10
+title: Local RAG LLM Project
+date: 2025-03-10
 categories: Project
-tags: AI RAG LLM
+tags:
+  - AI
+  - RAG
+  - LLM
 ---
 # Project MythingLLM in Box which is pull from Anythingllm 
 # Part 1, software prepare/dev
@@ -42,9 +45,12 @@ test result :
  ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/20250319235528.png)
  
  4, using M.2 to Qculink eGPU docker connect to external GPU, I try to the old GForce 960 , refer to https://alican-kiraz1.medium.com/run-llm-on-pi5-connecting-an-nvidia-gpu-to-raspberry-pi-5-via-pcie-x4-a6d52c3efd2a  , but it don't work for me.  it can show the hardware information , but  NVIDIA driver  don't work. 
+- eGPU work 
+![[Pasted image 20250325111315.png]]
  ![2020250320000509.png](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250320000509.png)
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250320000851.png)
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250320000646.png)
+
 ### 4, Next step I will try the AMD RX580...(RUNNING)
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/20250320202621.jpg)
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/20250320202644.jpg)
@@ -59,9 +65,8 @@ https://www.jeffgeerling.com/blog/2024/use-external-gpu-on-raspberry-pi-5-4k-gam
 https://www.jeffgeerling.com/comment/reply/node/3420/comment_node_blog_post
 ```
 git clone --depth=1 --branch rpi-6.6.y-gpu https://github.com/Coreforge/linux.git
-
+or git clone --branch rpi-6.6.y --depth 1  https://github.com/raspberrypi/linux.git
 ```
-git clone --branch rpi-6.6.y --depth 1  https://github.com/raspberrypi/linux.git
 ```
 sudo su
 sudo apt install git bc bison flex libssl-dev make libncurses5-dev
@@ -78,6 +83,17 @@ sudo vi /etc/ld.so.preload
 KERNEL=kernel_2712
 make bcm2712_defconfig
 make menuconfig .... 
+1. Before compiling the kernel, run `make menuconfig` and select the options:  
+    1. Kernel Features > Page Size > 4 KB (for Box86 compatibility)  
+    2. Kernel Features > Kernel support for 32-bit EL0 > Fix up misaligned multi-word loads and stores in user space  
+    3. Kernel Features > Fix up misaligned loads and stores from userspace for 64bit code  
+    4. Device Drivers > Graphics support > AMD GPU (optionally SI/CIK support too)  
+    5. Device Drivers > Graphics support > Direct Rendering Manager (XFree86 4.1.0 and higher DRI support) > Force Architecture can write-combine memory
+nano .config
+  
+Rewrite the part marked 'CONFIG_LOCALVERSION='○○○○' with an easy-to-understand name. This time, it was written as 'CONFIG_LOCALVERSION='-v8_16k', so I changed it to 'CONFIG_LOCALVERSION='-v8_16kradeon' and saved it.
+
+
 make -j6 Image.gz modules dtbs
 
 make -j6 modules_install
@@ -112,6 +128,12 @@ zphilip@raspberrypi:~ $ cat /sys/class/hwmon/hwmon5/fan1_input
 zphilip@raspberrypi:~ $ cat /sys/class/hwmon/hwmon5/pwm1_enable                   1                                                                                 zphilip@raspberrypi:~ $ echo 200 | sudo tee /sys/class/hwmon/hwmon5/pwm1
 
 sudo apt-get install neofetch
+## sudo nano /etc/X11/xorg.conf.d/20-amdgpu.conf
+## cat /sys/class/hwmon/hwmon4/power1_average
+
+make kernelversion
+ echo 1 | sudo tee /sys/class/hwmon/hwmon4/fan1_enable
+ echo 128 | sudo tee /sys/class/hwmon/hwmon4/pwm1 128
 ```
 
 ---
@@ -120,6 +142,30 @@ sudo apt-get install neofetch
 make the llama.cpp.. 
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250321002459.png)
 
+```
+# Install dependencies: Vulkan SDK, glslc, and cmake
+sudo apt install -y libvulkan-dev glslc cmake
+
+# Clone llama.cpp
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+
+# Build with Vulkan support
+cmake -B build -DGGML_VULKAN=1
+cmake --build build --config Release
+
+# Download llama3.2:3b
+cd models && wget https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+
+# Run it.
+cd ../
+./build/bin/llama-cli -m "models/Llama-3.2-3B-Instruct-Q4_K_M.gguf" -p "Why is the blue sky blue?" -e -ngl 100 -t 4
+
+# You should see in the output, ggml_vulkan detected your GPU. For example:
+# ggml_vulkan: Found 1 Vulkan devices:
+# ggml_vulkan: 0 = AMD Radeon RX 6700 XT (RADV NAVI22) (radv) | uma: 0 | fp16: 1 | warp size: 64
+
+```
 ```
 ./build/bin/llama-cli -m "models/Llama-3.2-3B-Instruct-Q4_K_M.gguf" -p "Why is the blue sky blue?" -e -ngl 100 -t 4
 ```
@@ -132,5 +178,16 @@ but finally it cannot work out with eGPU even "lspci" cannot show the eGPU infor
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-37-06.png)
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-40-23.png)
 
-### 4 get another board to try , It will  be delivered after tomorrow. What I can do is waiting .
-![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-48-14.png)
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250325112700.png)
+
+### Somehow the RX580 don't work anymore... probably accidently I broke it :( , Orz..
+Finally get one AMD RX 6700 xt 
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250327165309.png)
+Run on PCIe Gen3, 
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250327165648.png)
+Token speed have 27tokens/seconds
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250327164948.png)
+
+# Part 3, setup llam.cpp server with GPU support
+## 1, llava 
+## 2, embedding 

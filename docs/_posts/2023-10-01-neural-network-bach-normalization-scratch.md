@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "neural network + Bach normalization"
-date:   2023-01-26
+title: neural network + Bach normalization
+date: 2023-01-26
 categories: coding
 tags: AI NN
 ---
