@@ -120,12 +120,17 @@ ls /sys/class/hwmon/hwmon5/
 
 manually contro it 
 echo 1 | sudo tee /sys/class/hwmon/hwmon5/pwm1_enable                             
-cat /sys/class/hwmon/hwmon5/pwm1_max                                             
-255                                                                               zphilip@raspberrypi:~ $ cat /sys/class/hwmon/hwmon5/fan1_input                    
-148                                                                               zphilip@raspberrypi:~ $ echo 128 | sudo tee /sys/class/hwmon/hwmon5/pwm1          128                                                                               
+cat /sys/class/hwmon/hwmon5/pwm1_max   
+255          
+zphilip@raspberrypi:~ $ cat /sys/class/hwmon/hwmon5/fan1_input  
+148                                                                               
+zphilip@raspberrypi:~ $ echo 128 | sudo tee /sys/class/hwmon/hwmon5/pwm1  
+128                                                                               
 zphilip@raspberrypi:~ $ cat /sys/class/hwmon/hwmon5/fan1_input                    
 1939                                                                              
-zphilip@raspberrypi:~ $ cat /sys/class/hwmon/hwmon5/pwm1_enable                   1                                                                                 zphilip@raspberrypi:~ $ echo 200 | sudo tee /sys/class/hwmon/hwmon5/pwm1
+zphilip@raspberrypi:~ $ cat /sys/class/hwmon/hwmon5/pwm1_enable                   
+1                                                                                 
+zphilip@raspberrypi:~ $ echo 200 | sudo tee /sys/class/hwmon/hwmon5/pwm1
 
 sudo apt-get install neofetch
 ## sudo nano /etc/X11/xorg.conf.d/20-amdgpu.conf
@@ -172,8 +177,7 @@ cd ../
 
 it is failure due to the "buss error" , it might because the extension board only support PCIE2.. I try several different smaller gguf model but it didn't work out.  finally the PCIE will downgrade PICE gen1.. so I decide to switch the extension board firstly.
 
-## 3  I buy another extension board with only one SSD slot and support gen3
-but finally it cannot work out with eGPU even "lspci" cannot show the eGPU information, so there is totally cannot detect the eGPU...
+## 3, I buy another extension board with only one SSD slot and support gen3
 
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-37-06.png)
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Snipaste_2025-03-23_08-40-23.png)
@@ -187,7 +191,142 @@ Run on PCIe Gen3,
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250327165648.png)
 Token speed have 27tokens/seconds
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250327164948.png)
-
+./llama-bench -p 0 -n 512 -m ./models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -m ./models/Meta-Llama-3.1-8B-Instruct-Q8_0.gguf.2 -m ./models/llava-llama-3-8b-v1_1-int4.gguf
 # Part 3, setup llam.cpp server with GPU support
-## 1, llava 
+## 1, llama.cpp in docker..
+- ollama have no arm version and also have vulkan support version ...看来要自己造轮子？
+- there is vulkan version post , [https://github.com/whyvl/ollama-vulkan/issues/7#issuecomment-2660836871](https://github.com/whyvl/ollama-vulkan/issues/7#issuecomment-2660836871)...不知道行不行
+- there are also llama.cpp .devops/vulkan.Dockerfile, 
+	- create docker using llama.cpp vulkan.dockerfile :  docker build -t llama-cpp-vulkan -f .devops/vulkan.Dockerfile .
+- Above docker file all stuck on vulkan sdk installation, it seems no one try it in arm64 yet.
+- there are no offical vulkan sdk version for arm64, luckly someone do it , https://github.com/jakoch/vulkan-sdk-arm , download it and install it locally , something like below :
+-  Install Vulkan SDK from local file (ARM version)
+```
+		ENV VULKAN_SDK_VERSION=1.4.309.0
+		ENV VULKAN_SDK_PATH=/opt/vulkan-sdk
+		
+		#install vulkan sdk from local file, arm64 version cannot install from apt
+		ENV VULKAN_SDK_VERSION=1.4.309.0
+		ENV VULKAN_SDK_PATH=/opt/vulkan-sdk
+		RUN wget https://github.com/jakoch/vulkan-sdk-arm/releases/download/1.4.309.0/vulkansdk-ubuntu-22.04-arm-1.4.309.0.tar.xz -O /tmp/vulkan-sdk.tar.xz \
+		    && mkdir -p /opt/vulkan-sdk \
+		    && tar -xJf /tmp/vulkan-sdk.tar.xz -C /opt/vulkan-sdk --strip-components=1 \
+		    && rm /tmp/vulkan-sdk.tar.xz
+		
+		#Set environment variables for Vulkan SDK
+		ENV VULKAN_SDK=/opt/vulkan-sdk
+		ENV PATH="VULKAN_SDK/bin:PATH"
+		ENV LD_LIBRARY_PATH="VULKAN_SDK/lib:LD_LIBRARY_PATH"
+		ENV VK_ICD_FILENAMES="$VULKAN_SDK/etc/vulkan/icd.d"
+		ENV VK_LAYER_PATH="$VULKAN_SDK/etc/vulkan/layer.d"
+```
+- then problem is there are no glslc...it can be installed in debian bookworm version, but not in ubuntu and debian blueye version... it can be make locally...
+- build glslc for arm64+ubuntue   --- this is not glslc..it is glslang it already in the vulkansdk..
+		git clone https://github.com/KhronosGroup/glslang.git
+		cd glslang
+		./update_glslang_sources.py
+		cmake -B build -DCMAKE_BUILD_TYPE=Release
+		cmake --build build
+		sudo cmake --install build
+- build glslc (https://github.com/google/shaderc/)... not succesfully yet....
+```
+					# Install SPIRV-Tools dependencies
+				RUN apt-get update && apt-get install -y \
+				    ninja-build \
+				    libspirv-dev \
+				    && rm -rf /var/lib/apt/lists/*
+				# Clone the Shaderc repository
+				RUN git clone --recurse-submodules https://github.com/google/shaderc.git /shaderc
+				# Create a build directory and navigate to it
+				WORKDIR /shaderc
+				# Create the build directory inside the shaderc folder
+				RUN mkdir build
+				# Change to the build directory and run cmake from there
+				WORKDIR /shaderc/build
+				# Configure the build system using CMake (from the shaderc folder)
+				RUN cmake .. -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -DSHADERC_SKIP_TESTS=ON
+				# Build Shaderc using all available cores
+				RUN make -j$(nproc)
+				# Install Shaderc
+				RUN make install
+				# Verify installation
+				RUN ls -l $VULKAN_SDK/bin/glslc && \
+				    which glslc && \
+				    glslc --version
+```
+- using debian:bookworm , vulkaninfo show something and llama.cpp can sucessfully compiled . but run will failed with "Bus error (core dumped) " unsure why-
+```
+		FROM debian:bookworm 
+		# Install system dependencies
+		RUN apt-get update && \
+		    apt-get install -y --no-install-recommends \
+		    python3-pip \
+		    python3-dev \
+		    vulkan-tools \
+		    libvulkan1 \
+		    libvulkan-dev \
+		    mesa-vulkan-drivers \
+		    mesa-common-dev \
+		    vulkan-validationlayers \
+		    libvulkan-dev \
+		    glslang-tools \
+		    glslc \
+		    cmake \
+		    git \
+		    wget \
+		    ninja-build \      
+		    build-essential \  
+		    && rm -rf /var/lib/apt/lists/*
+		
+		RUN apt-get update && \
+		    apt-get install -y --no-install-recommends \
+		    gnupg \                
+		    ca-certificates \    
+		    && rm -rf /var/lib/apt/lists/*
+		
+		# Verify installation
+		#RUN vulkaninfo
+		WORKDIR /app/llama.cpp
+		
+		# Build with Vulkan support
+		RUN cmake -B build -DGGML_VULKAN=1
+		RUN cmake --build build --config Release
+		
+		# Install llama-cpp-python with Vulkan support
+		RUN CMAKE_ARGS="-DGGML_VULKAN=ON" pip3 install --no-cache-dir llama-cpp-python	
+```
+	source /path/to/your/venv/bin/activate
+
+in the docker container, running : /llama.cpp/build/bin/llama-cli -m "models/Llama-3.2-3B-Instruct-Q4_K_M.gguf" -p "Why is the blue sky blue?" -e  -ngl 100 -t 4 , it failed like below
+```
+ggml_vulkan: Found 1 Vulkan devices:
+ggml_vulkan: 0 = AMD Radeon RX 6700 XT (RADV NAVI22) (radv) | uma: 0 | fp16: 1 | warp size: 32 | shared memory: 65536 | matrix cores: none
+build: 4984 (5d016702) with cc (Debian 12.2.0-14) 12.2.0 for aarch64-linux-gnu
+main: llama backend init
+main: load the model and apply lora adapter, if any
+llama_model_load_from_file_impl: using device Vulkan0 (AMD Radeon RX 6700 XT (RADV NAVI22)) - 12032 MiB free
+llama_model_loader: loaded meta data with 35 key-value pairs and 255 tensors from models/Llama-3.2-3B-Instruct-Q4_K_M.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+...........
+load_tensors: loading model tensors, this can take a while... (mmap = true)
+make_cpu_buft_list: disabling extra buffer types (i.e. repacking) since a GPU device is available
+load_tensors: offloading 28 repeating layers to GPU
+load_tensors: offloading output layer to GPU
+load_tensors: offloaded 29/29 layers to GPU
+load_tensors:      Vulkan0 model buffer size =  1918.35 MiB
+load_tensors:   CPU_Mapped model buffer size =   308.23 MiB
+...........................................................................
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 4096
+llama_context: n_ctx_per_seq = 4096
+llama_context: n_batch       = 2048
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = 0
+llama_context: freq_base     = 500000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_per_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized
+Bus error (core dumped)
+```
 ## 2, embedding 
