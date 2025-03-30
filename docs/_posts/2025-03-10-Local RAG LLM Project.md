@@ -340,10 +340,10 @@ Llama.cpp server up..
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/DSC_0195.jpg )
 [llava-1.6-mistral-7b-gguf](https://huggingface.co/cjpais/llava-1.6-mistral-7b-gguf), llava-1.6-mistral-7b/llava-v1.6-mistral-7b.Q4_K_M.gguf, 4.37GB
 
-![[Pasted image 20250331001638.png]]
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331001638.png)
 
 ggml_llava-v1.5-7b, llava-v1.5-7b/ggml-model-q4_k.gguf -- 4GB
-![[Pasted image 20250331001833.png]]
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331001833.png)
 
 llava-llama-3-8b-v1_1-int4.gguf
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331003144.png)
