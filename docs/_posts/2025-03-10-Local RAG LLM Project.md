@@ -329,4 +329,9 @@ llama_context: freq_scale    = 1
 llama_context: n_ctx_per_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized
 Bus error (core dumped)
 ```
+
+==Done... finally the llama.cpp work in the docker container!!!  performance is good==
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250330014803.png)
+Llama.cpp server up..
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250330102505.png)
 ## 2, embedding 
