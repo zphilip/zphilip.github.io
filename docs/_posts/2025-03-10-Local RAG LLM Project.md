@@ -193,7 +193,7 @@ Token speed have 27tokens/seconds
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250327164948.png)
 ./llama-bench -p 0 -n 512 -m ./models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -m ./models/Meta-Llama-3.1-8B-Instruct-Q8_0.gguf.2 -m ./models/llava-llama-3-8b-v1_1-int4.gguf
 # Part 3, setup llam.cpp server with GPU support
-## 1, llama.cpp in docker..
+## 1, llama.cpp in docker + vulkan + Amdgpu + arm64..
 - ollama have no arm version and also have vulkan support version ...看来要自己造轮子？
 - there is vulkan version post , [https://github.com/whyvl/ollama-vulkan/issues/7#issuecomment-2660836871](https://github.com/whyvl/ollama-vulkan/issues/7#issuecomment-2660836871)...不知道行不行
 - there are also llama.cpp .devops/vulkan.Dockerfile, 
@@ -330,8 +330,21 @@ llama_context: n_ctx_per_seq (4096) < n_ctx_train (131072) -- the full capacity 
 Bus error (core dumped)
 ```
 
+---
+2025-03-30
 ==Done... finally the llama.cpp work in the docker container!!!  performance is good==
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250330014803.png)
 Llama.cpp server up..
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250330102505.png)
-## 2, embedding 
+## 2, llava supporting
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/DSC_0195.jpg )
+[llava-1.6-mistral-7b-gguf](https://huggingface.co/cjpais/llava-1.6-mistral-7b-gguf), llava-1.6-mistral-7b/llava-v1.6-mistral-7b.Q4_K_M.gguf, 4.37GB
+
+![[Pasted image 20250331001638.png]]
+
+ggml_llava-v1.5-7b, llava-v1.5-7b/ggml-model-q4_k.gguf -- 4GB
+![[Pasted image 20250331001833.png]]
+
+llava-llama-3-8b-v1_1-int4.gguf
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331003144.png)
+## 3, embedding 
