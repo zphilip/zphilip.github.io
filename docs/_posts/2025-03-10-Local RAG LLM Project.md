@@ -20,7 +20,8 @@ tags:
 
 4. add search bar to search the vector database cross the worksapce 
 
-   [image-20250319215722554]<img src="/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/image-20250319215722554.png" alt="image-20250319215722554" />
+   [image-20250319215722554]
+   <img src="/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/image-20250319215722554.png" alt="image-20250319215722554" />
 # Part2, hardware setup for software test
 ## 1. Test in the embedding/small board , I get the Orange Pi5 AIPro 24G and raspberry pi 5 16G   [Done]
 ![]()
@@ -63,6 +64,7 @@ Following the instruction to do the kernal rebuild， refer  to following:
 https://gigazine.net/gsc_news/en/20240226-raspberry-pi-5-gpu-graphics-card/ 
 https://www.jeffgeerling.com/blog/2024/use-external-gpu-on-raspberry-pi-5-4k-gaming
 https://www.jeffgeerling.com/comment/reply/node/3420/comment_node_blog_post
+https://www.youtube.com/watch?v=J0z09Ddr58w
 ```
 git clone --depth=1 --branch rpi-6.6.y-gpu https://github.com/Coreforge/linux.git
 or git clone --branch rpi-6.6.y --depth 1  https://github.com/raspberrypi/linux.git
@@ -173,6 +175,8 @@ cd ../
 ```
 ```
 ./build/bin/llama-cli -m "models/Llama-3.2-3B-Instruct-Q4_K_M.gguf" -p "Why is the blue sky blue?" -e -ngl 100 -t 4
+./build/bin/llama-cli -m "models/Llama-3.2-3B-Instruct-Q4_K_M.gguf" -p "What is quantum computing and why is it important?" -e -ngl 100 -t 4
+
 ```
 
 it is failure due to the "buss error" , it might because the extension board only support PCIE2.. I try several different smaller gguf model but it didn't work out.  finally the PCIE will downgrade PICE gen1.. so I decide to switch the extension board firstly.
@@ -220,40 +224,45 @@ Token speed have 27tokens/seconds
 		ENV VK_ICD_FILENAMES="$VULKAN_SDK/etc/vulkan/icd.d"
 		ENV VK_LAYER_PATH="$VULKAN_SDK/etc/vulkan/layer.d"
 ```
-- then problem is there are no glslc...it can be installed in debian bookworm version, but not in ubuntu and debian blueye version... it can be make locally...
-- build glslc for arm64+ubuntue   --- this is not glslc..it is glslang it already in the vulkansdk..
-		git clone https://github.com/KhronosGroup/glslang.git
-		cd glslang
-		./update_glslang_sources.py
-		cmake -B build -DCMAKE_BUILD_TYPE=Release
-		cmake --build build
-		sudo cmake --install build
-- build glslc (https://github.com/google/shaderc/)... not succesfully yet....
-```
-					# Install SPIRV-Tools dependencies
-				RUN apt-get update && apt-get install -y \
-				    ninja-build \
-				    libspirv-dev \
-				    && rm -rf /var/lib/apt/lists/*
-				# Clone the Shaderc repository
-				RUN git clone --recurse-submodules https://github.com/google/shaderc.git /shaderc
-				# Create a build directory and navigate to it
-				WORKDIR /shaderc
-				# Create the build directory inside the shaderc folder
-				RUN mkdir build
-				# Change to the build directory and run cmake from there
-				WORKDIR /shaderc/build
-				# Configure the build system using CMake (from the shaderc folder)
-				RUN cmake .. -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -DSHADERC_SKIP_TESTS=ON
-				# Build Shaderc using all available cores
-				RUN make -j$(nproc)
-				# Install Shaderc
-				RUN make install
-				# Verify installation
-				RUN ls -l $VULKAN_SDK/bin/glslc && \
-				    which glslc && \
-				    glslc --version
-```
+- then problem is there are no glslc...it can be installed in debian bookworm version, but not in ubuntu and debian blueye version.
+	- build glslc for arm64+ubuntue   --- this is not glslc..it is glslang it already in the vulkansdk..
+			git clone https://github.com/KhronosGroup/glslang.git
+			cd glslang
+			./update_glslang_sources.py
+			cmake -B build -DCMAKE_BUILD_TYPE=Release
+			cmake --build build
+			sudo cmake --install build
+	- https://github.com/google/shaderc/tree/v2023.8
+	- https://github.com/KhronosGroup/SPIRV-Tools
+	- build glslc (https://github.com/google/shaderc/)...
+		```
+		RUN apt-get update && apt-get install -y \
+		    spirv-tools \
+		    spirv-headers \
+		    glslang-tools \
+		    glslang-dev
+		
+		RUN git clone --branch vulkan-sdk-1.4.309 https://github.com/KhronosGroup/SPIRV-Tools.git \
+		    && cd SPIRV-Tools \
+		    && git clone --branch vulkan-sdk-1.4.309 https://github.com/KhronosGroup/SPIRV-Headers.git external/spirv-headers \
+		    && cmake -GNinja -B build -DCMAKE_BUILD_TYPE=Release \
+		    && cmake --build build --target install
+		
+		# Create the build directory inside the shaderc folder
+		RUN git clone --branch v2023.8 --single-branch https://github.com/google/shaderc.git && \
+		    cd shaderc && \
+		    ./utils/git-sync-deps
+		
+		# Install Python symlink first
+		RUN apt-get update && apt-get install -y python-is-python3
+		
+		WORKDIR /app/shaderc/build
+		RUN cmake -GNinja \
+		    -DCMAKE_BUILD_TYPE=Release \
+		    -DCMAKE_INSTALL_PREFIX=/usr/local \
+		    .. \
+		    && ninja install
+		```
 - using debian:bookworm , vulkaninfo show something and llama.cpp can sucessfully compiled . but run will failed with "Bus error (core dumped) " unsure why-
 ```
 		FROM debian:bookworm 
@@ -347,4 +356,21 @@ ggml_llava-v1.5-7b, llava-v1.5-7b/ggml-model-q4_k.gguf -- 4GB
 
 llava-llama-3-8b-v1_1-int4.gguf
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331003144.png)
-## 3, embedding 
+## 3, using llama.cpp-python for llava and embedding 
+
+python3 -m llama_cpp.server --config_file config.json
+it seems llamacpp-python have much worser performance than pure llama.cpp 
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331153457.png)
+the token measurement might not correct ... I test it with same picture 
+
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331233126.png)
+time is about 2 times, but the tokensper second  is about 19.42/7.02=2.77
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331233150.png)
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250331233215.png)
+
+**using llama.cpp native server** (https://github.com/ggml-org/llama.cpp/blob/master/examples/server/README.md)
+ - nohup /llama.cpp/build/bin/llama-server -m models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -c 4096 --host 0.0.0.0 --port 8000 --n-gpu-layers 99 >chat.log 2>&1 &
+ - nohup /llama.cpp/build/bin/llama-server --model models/nomic-embed-text-v1.Q8_0.gguf --port 8001 --embedding >embed.log 2>&1 &
+ - since current llama.cpp don't support multimodal , I switch to llama.cpp python to startup the multimodal : nohup python3 llama_cpp.server --config_file config.json  >llava.log 2>&1 &   
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250401162556.png)
+
