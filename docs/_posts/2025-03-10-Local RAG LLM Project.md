@@ -370,7 +370,7 @@ time is about 2 times, but the tokensper second  is about 19.42/7.02=2.77
 
 **using llama.cpp native server** (https://github.com/ggml-org/llama.cpp/blob/master/examples/server/README.md)
  - nohup /llama.cpp/build/bin/llama-server -m models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -c 4096 --host 0.0.0.0 --port 8000 --n-gpu-layers 99 >chat.log 2>&1 &
- - nohup /llama.cpp/build/bin/llama-server --model models/nomic-embed-text-v1.Q8_0.gguf --port 8001 --embedding >embed.log 2>&1 &
- - since current llama.cpp don't support multimodal , I switch to llama.cpp python to startup the multimodal : nohup python3 llama_cpp.server --config_file config.json  >llava.log 2>&1 &   
+ - nohup /llama.cpp/build/bin/llama-server --model models/nomic-embed-text-v1.Q8_0.gguf  --host 0.0.0.0 --port 8001 --embedding >embed.log 2>&1 &
+ - since current llama.cpp don't support multimodal , I switch to llama.cpp python to startup the multimodal : python3 -m llama_cpp.server --config_file config.json  >llava.log 2>&1 &   
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250401162556.png)
 
