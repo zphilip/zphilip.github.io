@@ -1,3 +1,10 @@
+---
+layout: post
+title: Query ReWriter
+date: 2025-04-09
+categories: LEARNING
+tags: AI RAG ReWriter
+---
 ### **一、Query ReWriter 的定义与作用**
 **Query ReWriter** 是一种自然语言处理（NLP）组件，用于将用户输入的原始查询（通常为口语化、模糊或不完整）转换为 **结构化、明确且适合下游任务** 的优化查询。  
 **核心目标**：  
