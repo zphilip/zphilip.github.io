@@ -436,3 +436,12 @@ still not working for ollama-vulkan-arm building:
 | Full precision         | Large (~10–30)   | ~100–500          | More accurate |
 | Quantized `.Q8_0.gguf` | Small (~0.01–1)  | ~0.1–2.0          | Less precise  |
  - rewriteQuestionChainT5
+---
+2025-04-09
+In this phase the machine is running with llama.cpp server + vulkan + arm64,  my Rag llm is running 
+- could gather my pictures in NAS embedding those pictures 
+- could search over the embedded pictures
+- could refer to the embedded pictures in chat , not very accurate 
+	- the query rewriter don't work as expected yet.. next step work plan
+	- the whole project software part need further checking to put it into github....next step work plan
+- this article is closed.. 
