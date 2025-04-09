@@ -370,7 +370,69 @@ time is about 2 times, but the tokensper second  is about 19.42/7.02=2.77
 
 **using llama.cpp native server** (https://github.com/ggml-org/llama.cpp/blob/master/examples/server/README.md)
  - nohup /llama.cpp/build/bin/llama-server -m models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -c 4096 --host 0.0.0.0 --port 8000 --n-gpu-layers 99 >chat.log 2>&1 &
- - nohup /llama.cpp/build/bin/llama-server --model models/nomic-embed-text-v1.Q8_0.gguf  --host 0.0.0.0 --port 8001 --embedding >embed.log 2>&1 &
+ - nohup /llama.cpp/build/bin/llama-server --model models/nomic-embed-text-v1.Q8_0.gguf -c 8192 -b 8192 --host 0.0.0.0 --port 8001  --n-gpu-layers 99 --embedding >embed.log 2>&1 &
  - since current llama.cpp don't support multimodal , I switch to llama.cpp python to startup the multimodal : python3 -m llama_cpp.server --config_file config.json  >llava.log 2>&1 &   
 ![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250401162556.png)
+#### the environment value used for mythingllm ：
+export EMBEDDING_BASE_PATH=http://llamacpp.server:8001                                             
+export LLAMACPP_MODEL_PREF="llama-3-2b"                                                             
+export IMAGE2TEXT_MODEL_PREF="llava-v1.5-7b"                                           
+export EMBEDDING_MODEL_DIM=768                                                                      
+export IMAGE2TEXT_BASE_PATH="http://llamacpp.server:8002"
 
+For now I will using above setting to make the server (llama-server + llama_cpp.server) run for embedding, llm and image2text....
+still not working for ollama-vulkan-arm building: 
++ https://github.com/whyvl/ollama-vulkan/issues/7#issuecomment-2660836871
++ https://github.com/nasrally/ollama-vulkan/commit/ccd533a2df4a333a0da5f95ac8f5cddda071c5a7.. fix and remove the libcap.so needs from libvulkan.so...
+![](/assets/2025-03-10%20Local%20RAG%20LLM%20Project.assets/Pasted%20image%2020250408110109.png)
+
+## 3 running mythingllm +  rewriteQuestionChainT5 
+ - Due to using the quantized model , so the l2 distance from the search result will be much smaller than before 
+	 This behavior actually makes sense once you understand how **quantized models** (like `nomic-embed-text-v1.Q8_0.gguf`) work and how **distance metrics** relate to vector **scaling and normalization**.	
+	### 🔍 Why are the L2 distances so much smaller with `.Q8_0.gguf`?
+	
+	When you're using:
+		- `nomic-embed-text-v1.Q8_0.gguf`: This is a **quantized model** (int8), which means the weights are approximated to 8-bit values to reduce model size and speed up inference. However, this **impacts the output vector values** — they may be:    
+	    - Smaller in magnitude        
+	    - Not normalized the same way as the full-precision version        
+	    - Less precise in fine detail        
+	Versus:
+	- `nomic-embed-text-v1` full model (e.g., via HuggingFace or unquantized GGUF): Higher-precision floating point vectors are output — often normalized or scaled consistently.
+	  
+	### 📐 Why does L2 distance behave differently?
+	
+	- L2 (Euclidean) distance is **sensitive to vector magnitude**. So if your embedding vectors are small (say each component is ~0.01), the L2 distance between two vectors will also be small (0.1 to 1.5 range is normal in that case).    
+	- If vectors are larger (each component ~10–30), then distances can go from 100 to 500+.  
+	### ✅ What you can do
+	
+	#### 1. **Normalize the vectors manually**
+	
+	If the quantized model doesn't normalize embeddings, you can do it yourself:
+	
+	```python
+	import numpy as np
+	
+	def normalize(vec):
+	    return vec / np.linalg.norm(vec)
+	```
+	
+	Normalize both the stored embeddings and the query before computing L2 or cosine distance.
+	
+	#### 2. **Switch to cosine similarity (recommended for text embeddings)**
+	Cosine similarity is **scale-invariant**, so it works better when embedding vectors have inconsistent magnitudes (as is the case with quantized models).
+	- Use **cosine similarity or cosine distance** instead of L2:    
+	```python
+	from sklearn.metrics.pairwise import cosine_similarity
+	
+	similarity = cosine_similarity([vec1], [vec2])  # result between -1 and 1
+	```
+	#### 3. **Be consistent**
+	Make sure:
+	- You **store** all embeddings from the **same model**, and   
+	- You use the **same distance metric** when storing and querying.   
+
+| Model Type             | Vector Magnitude | L2 Distance Range | Notes         |
+| ---------------------- | ---------------- | ----------------- | ------------- |
+| Full precision         | Large (~10–30)   | ~100–500          | More accurate |
+| Quantized `.Q8_0.gguf` | Small (~0.01–1)  | ~0.1–2.0          | Less precise  |
+ - rewriteQuestionChainT5
